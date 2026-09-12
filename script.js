@@ -226,6 +226,81 @@ function toggleWireframeMode() {
   }
 }
 
+/**
+ * Filter 20 Services by Category
+ * @param {string} category - 'all' | 'ai' | 'dev' | 'creative' | 'growth' | 'operations'
+ * @param {HTMLElement} [chipElement] - Clicked filter chip
+ */
+function filterServices(category, chipElement) {
+  const chips = document.querySelectorAll('.service-filter-chip');
+  chips.forEach(chip => chip.classList.remove('active'));
+  if (chipElement) {
+    chipElement.classList.add('active');
+  }
+
+  // Clear search input if category is clicked
+  const searchInput = document.getElementById('services-search-input');
+  if (searchInput && searchInput.value) {
+    searchInput.value = '';
+  }
+
+  const cards = document.querySelectorAll('.service-card-item');
+  cards.forEach(card => {
+    const cardCat = card.getAttribute('data-category');
+    if (category === 'all' || cardCat === category) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  updateServicesEmptyNotice();
+}
+
+/**
+ * Filter 20 Services by Search Text
+ */
+function filterServicesBySearch() {
+  const searchInput = document.getElementById('services-search-input');
+  if (!searchInput) return;
+  const query = searchInput.value.toLowerCase().trim();
+
+  // Reset category chips active state to 'all' if typing
+  const chips = document.querySelectorAll('.service-filter-chip');
+  chips.forEach(chip => {
+    if (chip.getAttribute('data-category') === 'all') {
+      chip.classList.add('active');
+    } else {
+      chip.classList.remove('active');
+    }
+  });
+
+  const cards = document.querySelectorAll('.service-card-item');
+  cards.forEach(card => {
+    const textContent = card.textContent.toLowerCase();
+    if (!query || textContent.includes(query)) {
+      card.style.display = 'flex';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+
+  updateServicesEmptyNotice();
+}
+
+function updateServicesEmptyNotice() {
+  let emptyNotice = document.getElementById('services-empty-notice');
+  const cards = document.querySelectorAll('.service-card-item');
+  let visibleCount = 0;
+  cards.forEach(c => {
+    if (c.style.display !== 'none') visibleCount++;
+  });
+
+  if (emptyNotice) {
+    emptyNotice.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+}
+
 // Expose functions globally for inline HTML event handlers (ES Module compatibility)
 Object.assign(window, {
   scrollRoadmap,
@@ -239,5 +314,7 @@ Object.assign(window, {
   openAssetModal,
   closeAssetModal,
   handleAssetBackdropClick,
-  toggleWireframeMode
+  toggleWireframeMode,
+  filterServices,
+  filterServicesBySearch
 });

@@ -1,10 +1,19 @@
 /* ==========================================================================
-   ANIMATION HUB - 3D ANIMATION ACADEMY
-   Interactive Application Engine
+   ANIMATION HUB - 3D ANIMATION ENGINE & INTERACTIVE CONTROLLER
    ========================================================================== */
 
+import { initThreeScene, toggle3DWireframe, pulse3DShockwave } from './three-scene.js';
+
+let conveyorPaused = false;
+let currentSpeed = 1;
+
 document.addEventListener('DOMContentLoaded', () => {
-  console.log('Animation Hub Engine Initialized.');
+  console.log('Animation Hub 3D Creative Engine Initialized.');
+
+  // Initialize Three.js 3D Viewport
+  setTimeout(() => {
+    initThreeScene('three-hero-canvas-container');
+  }, 100);
 });
 
 /**
@@ -21,7 +30,7 @@ function scrollRoadmap(direction) {
 
 /**
  * Single Page View Switcher & Navigation Handling
- * @param {string} tabName - 'home' | 'programs' | 'showcase' | 'about'
+ * @param {string} tabName - 'home' | 'services' | 'programs' | 'showcase' | 'about'
  * @param {string} [scrollTargetId] - Optional section ID to scroll to after switching
  */
 function switchTab(tabName, scrollTargetId) {
@@ -71,7 +80,7 @@ function toggleMobileDrawer() {
 }
 
 /**
- * Apply Now Modal Controller
+ * Apply Now / Request Service Modal Controller
  * @param {string} [presetTrack] - Optional track to pre-select in dropdown
  * @param {boolean} [precheckSponsorship] - Optional flag to pre-check sponsorship
  */
@@ -80,7 +89,6 @@ function openApplyModal(presetTrack, precheckSponsorship) {
   const step1 = document.getElementById('modal-step-1');
   const step2 = document.getElementById('modal-step-2');
   const trackSelect = document.getElementById('desired-track');
-  const sponsorshipCheck = document.getElementById('sponsorship-request');
 
   if (modal) {
     // Reset steps
@@ -91,12 +99,9 @@ function openApplyModal(presetTrack, precheckSponsorship) {
     if (presetTrack && trackSelect) {
       trackSelect.value = presetTrack;
     }
-    if (precheckSponsorship !== undefined && sponsorshipCheck) {
-      sponsorshipCheck.checked = precheckSponsorship;
-    }
 
     modal.classList.add('active');
-    document.body.style.overflow = 'hidden'; // Prevent background scroll
+    document.body.style.overflow = 'hidden';
   }
 }
 
@@ -129,18 +134,11 @@ function handleFormSubmit(event) {
   const fullName = document.getElementById('full-name').value.trim();
   const email = document.getElementById('email-address').value.trim();
   const track = document.getElementById('desired-track').value;
-  const sponsorshipChecked = document.getElementById('sponsorship-request').checked;
 
   // Populate Step 2 Confirmation Data
-  document.getElementById('success-applicant-name').textContent = fullName || 'Applicant';
+  document.getElementById('success-applicant-name').textContent = fullName || 'Client';
   document.getElementById('success-applicant-email').textContent = email || 'your email';
-  document.getElementById('success-track-name').textContent = track || 'Selected Program';
-
-  // Toggle sponsorship evaluation timeline item
-  const sponsorshipTimelineItem = document.getElementById('sponsorship-timeline-item');
-  if (sponsorshipTimelineItem) {
-    sponsorshipTimelineItem.style.display = sponsorshipChecked ? 'flex' : 'none';
-  }
+  document.getElementById('success-track-name').textContent = track || 'Selected Service';
 
   // Smooth Step Transition
   const step1 = document.getElementById('modal-step-1');
@@ -150,23 +148,15 @@ function handleFormSubmit(event) {
   setTimeout(() => {
     step1.style.display = 'none';
     step1.style.opacity = '1';
-    
     step2.style.display = 'block';
   }, 200);
-}
-
-/**
- * Sign In Mock Modal Trigger
- */
-function openSignInModal() {
-  alert('Portal Sign In feature coming soon for enrolled students!');
 }
 
 /**
  * Student Showcase Filtering
  */
 function filterShowcase(category, btnElement) {
-  const filterBtns = document.querySelectorAll('.filter-btn');
+  const filterBtns = document.querySelectorAll('.showcase-filters .filter-pill');
   filterBtns.forEach(btn => btn.classList.remove('active'));
   if (btnElement) {
     btnElement.classList.add('active');
@@ -191,14 +181,12 @@ function openAssetModal(title, author, track, imgSrc) {
   const modalImg = document.getElementById('asset-modal-img');
   const modalTitle = document.getElementById('asset-modal-title');
   const modalAuthor = document.getElementById('asset-modal-author');
-  const modalTrack = document.getElementById('asset-modal-track');
 
   if (modal) {
     modalImg.src = imgSrc;
     modalImg.classList.remove('wireframe-active');
     modalTitle.textContent = title;
     modalAuthor.textContent = `Created by ${author} • Industry Student Showcase`;
-    modalTrack.textContent = track;
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -226,8 +214,12 @@ function toggleWireframeMode() {
   }
 }
 
+/* ==========================================================================
+   DRY CLEANING HANGING WIRE CONVEYOR ENGINE (20 Services)
+   ========================================================================== */
+
 /**
- * Filter 20 Services by Category
+ * Filter Services on the Dry Cleaning Hanging Wire Carousel
  * @param {string} category - 'all' | 'ai' | 'dev' | 'creative' | 'growth' | 'operations'
  * @param {HTMLElement} [chipElement] - Clicked filter chip
  */
@@ -238,34 +230,48 @@ function filterServices(category, chipElement) {
     chipElement.classList.add('active');
   }
 
-  // Clear search input if category is clicked
   const searchInput = document.getElementById('services-search-input');
   if (searchInput && searchInput.value) {
     searchInput.value = '';
   }
 
-  const cards = document.querySelectorAll('.service-card-item');
-  cards.forEach(card => {
-    const cardCat = card.getAttribute('data-category');
-    if (category === 'all' || cardCat === category) {
-      card.style.display = 'flex';
+  const assemblies = document.querySelectorAll('.dryclean-hanger-assembly');
+  let matchCount = 0;
+
+  assemblies.forEach(assembly => {
+    const cardCat = assembly.getAttribute('data-category');
+    const isMatch = (category === 'all' || cardCat === category);
+
+    if (isMatch) {
+      assembly.classList.remove('conveyor-dimmed');
+      assembly.classList.add('conveyor-highlighted');
+      matchCount++;
     } else {
-      card.style.display = 'none';
+      assembly.classList.add('conveyor-dimmed');
+      assembly.classList.remove('conveyor-highlighted');
     }
   });
 
-  updateServicesEmptyNotice();
+  // If filtered to a specific category, scroll conveyor into first match
+  if (category !== 'all') {
+    const firstMatch = document.querySelector(`.dryclean-hanger-assembly[data-category="${category}"]`);
+    if (firstMatch) {
+      firstMatch.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }
+
+  updateServicesEmptyNotice(matchCount);
 }
 
 /**
- * Filter 20 Services by Search Text
+ * Real-time Search Across Hanging Services
  */
 function filterServicesBySearch() {
   const searchInput = document.getElementById('services-search-input');
   if (!searchInput) return;
   const query = searchInput.value.toLowerCase().trim();
 
-  // Reset category chips active state to 'all' if typing
+  // Reset category chips
   const chips = document.querySelectorAll('.service-filter-chip');
   chips.forEach(chip => {
     if (chip.getAttribute('data-category') === 'all') {
@@ -275,30 +281,73 @@ function filterServicesBySearch() {
     }
   });
 
-  const cards = document.querySelectorAll('.service-card-item');
-  cards.forEach(card => {
-    const textContent = card.textContent.toLowerCase();
-    if (!query || textContent.includes(query)) {
-      card.style.display = 'flex';
+  const assemblies = document.querySelectorAll('.dryclean-hanger-assembly');
+  let matchCount = 0;
+
+  assemblies.forEach(assembly => {
+    const text = assembly.textContent.toLowerCase();
+    const isMatch = !query || text.includes(query);
+
+    if (isMatch) {
+      assembly.classList.remove('conveyor-dimmed');
+      assembly.classList.add('conveyor-highlighted');
+      matchCount++;
     } else {
-      card.style.display = 'none';
+      assembly.classList.add('conveyor-dimmed');
+      assembly.classList.remove('conveyor-highlighted');
     }
   });
 
-  updateServicesEmptyNotice();
+  updateServicesEmptyNotice(matchCount);
 }
 
-function updateServicesEmptyNotice() {
-  let emptyNotice = document.getElementById('services-empty-notice');
-  const cards = document.querySelectorAll('.service-card-item');
-  let visibleCount = 0;
-  cards.forEach(c => {
-    if (c.style.display !== 'none') visibleCount++;
-  });
-
+function updateServicesEmptyNotice(count) {
+  const emptyNotice = document.getElementById('services-empty-notice');
   if (emptyNotice) {
-    emptyNotice.style.display = visibleCount === 0 ? 'block' : 'none';
+    emptyNotice.style.display = (count === 0) ? 'block' : 'none';
   }
+}
+
+/**
+ * Toggle Conveyor Automated Scroll Play/Pause
+ */
+function toggleConveyorPause(btn) {
+  conveyorPaused = !conveyorPaused;
+  const conveyorTrack = document.getElementById('dryclean-conveyor-track');
+  const statusIndicator = document.getElementById('conveyor-status-indicator');
+
+  if (conveyorTrack) {
+    conveyorTrack.style.animationPlayState = conveyorPaused ? 'paused' : 'running';
+  }
+
+  if (btn) {
+    btn.innerHTML = conveyorPaused 
+      ? '<span class="status-dot paused"></span> ▶ RESUME RACK' 
+      : '<span class="status-dot active"></span> ⏸ PAUSE RACK';
+  }
+
+  if (statusIndicator) {
+    statusIndicator.textContent = conveyorPaused ? 'CAROUSEL PAUSED' : 'CONVEYOR IN MOTION';
+    statusIndicator.className = conveyorPaused ? 'status-pill paused' : 'status-pill active';
+  }
+}
+
+/**
+ * Conveyor Speed Adjuster
+ * @param {number} speedMultiplier - 0.5 (slow) | 1 (normal) | 2 (fast)
+ */
+function setConveyorSpeed(speedMultiplier, btn) {
+  currentSpeed = speedMultiplier;
+  const conveyorTrack = document.getElementById('dryclean-conveyor-track');
+  
+  if (conveyorTrack) {
+    const baseDuration = 65; // seconds
+    conveyorTrack.style.animationDuration = (baseDuration / speedMultiplier) + 's';
+  }
+
+  const speedBtns = document.querySelectorAll('.speed-control-btn');
+  speedBtns.forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
 }
 
 // Expose functions globally for inline HTML event handlers (ES Module compatibility)
@@ -316,5 +365,9 @@ Object.assign(window, {
   handleAssetBackdropClick,
   toggleWireframeMode,
   filterServices,
-  filterServicesBySearch
+  filterServicesBySearch,
+  toggleConveyorPause,
+  setConveyorSpeed,
+  toggle3DWireframe,
+  pulse3DShockwave
 });

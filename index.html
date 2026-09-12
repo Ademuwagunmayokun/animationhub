@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animation Hub | Creative Technology, Animation & AI Solutions</title>
+  <title>Animation Hub | 3D Creative Technology, Animation & AI Solutions</title>
   <meta name="description" content="Animation Hub is a creative technology organization empowering the next generation of African creators and helping businesses scale with AI, full-stack development, and 3D animation.">
   
-  <!-- Google Fonts: Bricolage Grotesque (Brand Guideline Typeface) & Inter fallback -->
+  <!-- Expressive & Animated Typography: Righteous & Fredoka + Bricolage Grotesque -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Righteous&family=Bricolage+Grotesque:opsz,wght@12..96,500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -22,11 +22,9 @@
         <!-- Official Logomark: Dynamic 'A' with Play Button & Radiant Accent Sparks -->
         <div class="logo-brand-mark">
           <svg viewBox="0 0 100 90" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- 3 Radiant Accent Sparks (from PDF Page 9 & 10) -->
             <path d="M72 16 L81 7" stroke="#FF5E04" stroke-width="5" stroke-linecap="round"/>
             <path d="M79 26 L90 21" stroke="#FF5E04" stroke-width="5" stroke-linecap="round"/>
             <path d="M81 37 L92 38" stroke="#FF5E04" stroke-width="5" stroke-linecap="round"/>
-            <!-- Dynamic 'A' Rounded Triangle with Play Cutout -->
             <path fill-rule="evenodd" clip-rule="evenodd" d="M38.5 15.5 C43 8 50 8 54.5 15.5 L78 56 C82.5 63.5 78.5 72 70 72 L23 72 C14.5 72 10.5 63.5 15 56 L38.5 15.5 Z M42 35 C42 33 44.2 31.8 46 33 L58 40.5 C59.7 41.6 59.7 44.4 58 45.5 L46 53 C44.2 54.2 42 53 42 51 L42 35 Z" fill="#FF5E04"/>
           </svg>
         </div>
@@ -91,7 +89,7 @@
     <!-- 1. HOME VIEW -->
     <div id="home-view" class="page-view active">
       
-      <!-- HERO SECTION -->
+      <!-- HERO SECTION WITH INTERACTIVE THREE.JS 3D VIEWPORT -->
       <section class="hero-section">
         <video class="hero-bg-video" autoplay loop muted playsinline poster="assets/images/hero-studio-bg.jpg">
           <source src="assets/videos/hero-boy-video.mp4" type="video/mp4">
@@ -99,15 +97,15 @@
         <div class="hero-video-overlay"></div>
 
         <div class="container">
-          <div class="hero-body">
+          <div class="hero-interactive-grid">
             
             <div class="hero-text-box">
               <div class="brand-pill-tag">
                 <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                Creative Technology & Animation Ecosystem
+                3D Studio & Creative Technology Engine
               </div>
               
-              <h1 style="margin-bottom: 1rem;">
+              <h1 style="margin-bottom: 1.25rem;">
                 Empowering the Next Generation of African Creators
               </h1>
               
@@ -116,9 +114,31 @@
               </p>
               
               <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
-                <button class="btn btn-amber" onclick="switchTab('services')">EXPLORE 20 SERVICES &rarr;</button>
-                <button class="btn btn-outline" onclick="openApplyModal()">REQUEST A SERVICE</button>
+                <button class="btn btn-amber" onclick="switchTab('services')">HANGING 20 SERVICES &rarr;</button>
+                <button class="btn btn-outline" onclick="openApplyModal()">GET A QUOTE</button>
                 <button class="btn btn-outline" onclick="switchTab('programs')">ACADEMY TRAINING</button>
+              </div>
+            </div>
+
+            <!-- THREE.JS INTERACTIVE 3D VIEWPORT -->
+            <div class="three-hero-viewport-card">
+              <div class="three-hud-top-bar">
+                <div class="three-hud-pill">
+                  <span class="three-status-dot"></span>
+                  WebGL 3D Core Viewport
+                </div>
+                <div style="font-size: 0.72rem; color: #BBB; font-family: var(--font-animated);">60 FPS • THREE.JS</div>
+              </div>
+
+              <!-- Canvas Container -->
+              <div id="three-hero-canvas-container" class="three-canvas-container"></div>
+
+              <div class="three-hud-bottom-bar">
+                <span style="font-size: 0.75rem; color: #AAA;">🖱 Drag / Hover to Orbit 3D Space</span>
+                <div style="display: flex; gap: 0.5rem;">
+                  <button class="three-action-btn" onclick="toggle3DWireframe()">⚡ Wireframe</button>
+                  <button class="three-action-btn" onclick="pulse3DShockwave()">💥 Pulse</button>
+                </div>
               </div>
             </div>
 
@@ -158,148 +178,7 @@
         </div>
       </section>
 
-      <!-- FEATURED SERVICES PREVIEW (Top 6 Highlights from the 20) -->
-      <section style="padding: 5rem 0; background: #0A0A0E;">
-        <div class="container">
-          <div class="section-header-centered" style="margin-bottom: 3.5rem;">
-            <div class="brand-pill-tag">WHAT WE DO</div>
-            <h2>Full-Spectrum Creative & Digital Services</h2>
-            <p style="color: var(--text-muted); max-width: 680px; margin: 0.5rem auto 0 auto;">
-              We offer 20 professional services across AI integration, software engineering, 3D animation, growth strategy, and operations to accelerate your business.
-            </p>
-          </div>
-
-          <div class="services-grid-20" style="margin-bottom: 2.5rem;">
-            <!-- Service 1: AI Integration -->
-            <div class="service-card-item">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 01</span>
-                  <span class="service-category-tag">AI & Intelligent Systems</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
-                </div>
-                <h3 class="service-card-title">AI Integration Specialist</h3>
-                <p class="service-card-desc">
-                  We connect businesses with practical AI tools that automate repetitive tasks, streamline workflows, analyze information, and increase productivity without rebuilding systems.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('AI Integration Specialist')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- Service 2: Full-Stack Development -->
-            <div class="service-card-item">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 02</span>
-                  <span class="service-category-tag">Development & Engineering</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                </div>
-                <h3 class="service-card-title">Full-Stack Development</h3>
-                <p class="service-card-desc">
-                  End-to-end web applications, responsive websites, dashboards, databases, and custom business systems designed to scale alongside your operations.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('Full-Stack Development')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- Service 3: AI Video Generation & Editing -->
-            <div class="service-card-item">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 03</span>
-                  <span class="service-category-tag">AI & Intelligent Systems</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
-                </div>
-                <h3 class="service-card-title">AI Video Generation & Editing</h3>
-                <p class="service-card-desc">
-                  Combining AI with professional storytelling to produce promotional videos, ads, animated stories, voiceovers, explainers, and post-production.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('AI Video Generation & Editing')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- Service 5: AI Chatbot Development -->
-            <div class="service-card-item">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 05</span>
-                  <span class="service-category-tag">AI & Intelligent Systems</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                </div>
-                <h3 class="service-card-title">AI Chatbot Development</h3>
-                <p class="service-card-desc">
-                  Intelligent conversational systems for customer service, FAQ automation, sales inquiries, and lead qualification that run 24/7 across your channels.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('AI Chatbot Development')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- Service 13: UX/UI Design -->
-            <div class="service-card-item">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 13</span>
-                  <span class="service-category-tag">Creative & Production</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                </div>
-                <h3 class="service-card-title">UX/UI Design</h3>
-                <p class="service-card-desc">
-                  Intuitive user flows, wireframes, accessible UI systems, and interactive prototypes that make digital products enjoyable, clear, and high-converting.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('UX/UI Design')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- Service 19: 3D Animation & Motion Design -->
-            <div class="service-card-item">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 19</span>
-                  <span class="service-category-tag">Creative & Production</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                </div>
-                <h3 class="service-card-title">3D Animation & Motion Design</h3>
-                <p class="service-card-desc">
-                  Studio-grade 3D animation, character rigging, product visualization, and cinematic motion graphics tailored for commercial and entertainment audiences.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('3D Animation & Motion Design')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-          </div>
-
-          <div style="text-align: center;">
-            <button class="btn btn-amber" onclick="switchTab('services')" style="font-size: 1rem; padding: 1rem 2.5rem;">
-              VIEW ALL 20 SERVICES &rarr;
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- WHO ARE WE SECTION (With Team Photo from Brand Guidelines Page 2) -->
+      <!-- WHO ARE WE SECTION (With Animated Character Stage replacing static image) -->
       <section class="who-are-we-section" id="who-are-we-section">
         <div class="container">
           <div class="who-are-we-card">
@@ -318,9 +197,26 @@
                   <button class="btn btn-outline" onclick="openApplyModal('Kids & Youth Animation')">Register a Child</button>
                 </div>
               </div>
-              <div class="who-are-we-image-box">
-                <img src="assets/images/who-we-are-team-cropped.jpg" alt="Animation Hub Team Members" class="who-are-we-img">
+
+              <!-- Animated Character Stage (Replaces Static Image) -->
+              <div class="who-are-we-character-stage">
+                <div class="character-portal-frame">
+                  <video class="character-loop-video" autoplay loop muted playsinline poster="assets/images/hero-studio-bg.jpg">
+                    <source src="assets/videos/hero-boy-video.mp4" type="video/mp4">
+                  </video>
+                  <div class="character-portal-overlay"></div>
+                  <div class="character-neon-scanner"></div>
+
+                  <div class="character-portal-hud">
+                    <div class="character-portal-pill">
+                      <span class="three-status-dot"></span>
+                      ANIMATED 3D CHARACTER STAGE
+                    </div>
+                    <button class="three-action-btn" style="background:rgba(0,0,0,0.7);" onclick="switchTab('showcase')">EXPLORE 3D &rarr;</button>
+                  </div>
+                </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -407,28 +303,54 @@
 
     </div>
 
-    <!-- 2. SERVICES VIEW (All 20 Services with Category Filtering & Real-time Search) -->
+    <!-- 2. SERVICES VIEW (DRY CLEANING WIRE HANGING CONVEYOR SYSTEM) -->
     <div id="services-view" class="page-view">
-      <section style="padding: 4rem 0;">
+      <section style="padding: 3.5rem 0;">
         <div class="container">
           
           <div class="services-header-box">
-            <div class="brand-pill-tag">WHAT WE OFFER</div>
+            <div class="brand-pill-tag">AUTOMATED DRY-CLEANING CABLE CAROUSEL</div>
             <h1 class="services-header-title">Our 20 Specialized Services</h1>
             <p class="services-header-subtitle">
-              Animation Hub delivers practical solutions combining cutting-edge artificial intelligence, digital production, full-stack software development, and remote operations to help businesses and creators thrive.
+              Suspended from an automated industrial dry-cleaning cable conveyor, each service box glides smoothly on its own. Hover any hanging box to pause and inspect, or click to request!
             </p>
           </div>
 
-          <!-- Interactive Search & Filter Toolbar -->
+          <!-- Interactive Search & Conveyor HUD Toolbar -->
           <div class="services-toolbar-wrapper">
+            <!-- Conveyor Control HUD -->
+            <div class="dryclean-hud-bar">
+              <div class="dryclean-telemetry">
+                <span id="conveyor-status-indicator" class="status-pill active">
+                  <span class="three-status-dot"></span> CONVEYOR IN MOTION
+                </span>
+                <span style="font-family: var(--font-animated); font-size: 0.8rem; color: var(--text-muted);">
+                  CABLE: OVERHEAD SUSPENSION WIRE • 20 HANGING BOXES
+                </span>
+              </div>
+
+              <div class="conveyor-speed-controls">
+                <button class="speed-control-btn" onclick="toggleConveyorPause(this)">
+                  ⏸ PAUSE RACK
+                </button>
+                <button class="speed-control-btn active" onclick="setConveyorSpeed(1, this)">
+                  1X NORMAL
+                </button>
+                <button class="speed-control-btn" onclick="setConveyorSpeed(2, this)">
+                  2X TURBO
+                </button>
+              </div>
+            </div>
+
+            <!-- Search input -->
             <div class="services-search-row">
               <span class="services-search-icon">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
               </span>
-              <input type="text" id="services-search-input" class="services-search-input" placeholder="Search across 20 services (e.g. AI, video, chatbot, SEO, 3D, development)..." oninput="filterServicesBySearch()">
+              <input type="text" id="services-search-input" class="services-search-input" placeholder="Search the hanging conveyor (e.g. AI, video, chatbot, SEO, 3D, development)..." oninput="filterServicesBySearch()">
             </div>
 
+            <!-- Category filter chips -->
             <div class="services-filter-row">
               <button class="service-filter-chip active" data-category="all" onclick="filterServices('all', this)">
                 All Services <span class="chip-count">20</span>
@@ -453,413 +375,1509 @@
 
           <!-- Empty Notice -->
           <div id="services-empty-notice" style="display: none; text-align: center; padding: 3rem; background: #111116; border-radius: 12px; margin-bottom: 2rem;">
-            <p style="color: var(--text-muted); font-size: 1.1rem;">No services match your search query. Try typing another term or reset filters.</p>
+            <p style="color: var(--text-muted); font-size: 1.1rem;">No hanging boxes match your search query. Try typing another term or reset filters.</p>
             <button class="btn btn-amber" style="margin-top: 1rem;" onclick="document.getElementById('services-search-input').value=''; filterServices('all', document.querySelector('.service-filter-chip[data-category=all]'))">Reset Filters</button>
           </div>
 
-          <!-- 20 SERVICES GRID -->
-          <div class="services-grid-20" id="services-container">
-            
-            <!-- 01: AI Integration Specialist -->
-            <div class="service-card-item" data-category="ai">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 01</span>
-                  <span class="service-category-tag">AI & Intelligent Systems</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
-                </div>
-                <h3 class="service-card-title">AI Integration Specialist</h3>
-                <p class="service-card-desc">
-                  Animation Hub helps businesses identify practical opportunities to integrate artificial intelligence into their existing operations. We connect businesses with AI tools that can automate repetitive tasks, improve customer experiences, streamline workflows, analyze information, and increase productivity. Our team focuses on practical AI implementation that delivers measurable business value without requiring organizations to completely rebuild their existing systems.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('AI Integration Specialist')">REQUEST SERVICE &rarr;</button>
+          <!-- DRY CLEANING HANGING WIRE CONVEYOR SYSTEM -->
+          <div class="dryclean-conveyor-system">
+            <!-- Overhead Industrial Steel Rail -->
+            <div class="dryclean-overhead-rail">
+              <div class="rail-bracket" style="left: 10%;"></div>
+              <div class="rail-bracket" style="left: 30%;"></div>
+              <div class="rail-bracket" style="left: 50%;"></div>
+              <div class="rail-bracket" style="left: 70%;"></div>
+              <div class="rail-bracket" style="left: 90%;"></div>
+            </div>
+            <div class="dryclean-cable-wire"></div>
+
+            <!-- Automated Scrolling Carousel Viewport -->
+            <div class="dryclean-carousel-window">
+              <div class="dryclean-conveyor-track" id="dryclean-conveyor-track">
+                
+      <!-- HANGING DRY CLEANING BOX 01: AI Integration Specialist -->
+      <div class="dryclean-hanger-assembly" data-category="ai" style="--i: 1;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 01</span>
+              <span class="service-category-tag">AI & Intelligent Systems</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+            </div>
+            <h3 class="service-card-title">AI Integration Specialist</h3>
+            <p class="service-card-desc">Animation Hub helps businesses identify practical opportunities to integrate artificial intelligence into their existing operations. We connect businesses with AI tools that can automate repetitive tasks, improve customer experiences, streamline workflows, analyze information, and increase productivity. Our team focuses on practical AI implementation that delivers measurable business value without requiring organizations to completely rebuild their existing systems.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('AI Integration Specialist')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 02: Full-Stack Development -->
+      <div class="dryclean-hanger-assembly" data-category="dev" style="--i: 2;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 02</span>
+              <span class="service-category-tag">Development & Engineering</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+            <h3 class="service-card-title">Full-Stack Development</h3>
+            <p class="service-card-desc">Animation Hub provides full-stack web development services covering both the visible user experience and the technology powering applications behind the scenes. We develop responsive websites, web applications, dashboards, platforms, databases, and business systems designed around specific client requirements. Our developers help businesses transform ideas into functional, scalable digital products that can grow alongside their operations.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Full-Stack Development')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 03: AI Video Generation & Editing -->
+      <div class="dryclean-hanger-assembly" data-category="ai" style="--i: 3;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 03</span>
+              <span class="service-category-tag">AI & Intelligent Systems</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+            </div>
+            <h3 class="service-card-title">AI Video Generation & Editing</h3>
+            <p class="service-card-desc">Animation Hub combines artificial intelligence with professional storytelling and video production to create engaging visual content. We produce promotional videos, advertisements, educational content, social media videos, animated stories, explainers, corporate communications, and creative campaigns. Our service can include scripting, AI-generated visuals, animation, voiceovers, music, editing, subtitles, and post-production for multiple digital platforms.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('AI Video Generation & Editing')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 04: Data Analytics -->
+      <div class="dryclean-hanger-assembly" data-category="growth" style="--i: 4;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 04</span>
+              <span class="service-category-tag">Digital Growth & Strategy</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            </div>
+            <h3 class="service-card-title">Data Analytics</h3>
+            <p class="service-card-desc">Animation Hub helps businesses turn large amounts of information into useful insights. We organize, analyze, visualize, and interpret business data to help organizations understand customers, operations, sales, marketing performance, and other important indicators. Our team can create reports, dashboards, data visualizations, and analytical systems that make complex information easier for business leaders to understand and use.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Data Analytics')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 05: AI Chatbot Development -->
+      <div class="dryclean-hanger-assembly" data-category="ai" style="--i: 5;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 05</span>
+              <span class="service-category-tag">AI & Intelligent Systems</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <h3 class="service-card-title">AI Chatbot Development</h3>
+            <p class="service-card-desc">Animation Hub develops intelligent AI-powered chatbots designed to support businesses, organizations, schools, and digital platforms. Chatbots can assist with customer inquiries, frequently asked questions, lead generation, sales support, education, internal communication, and customer service. We design conversational systems around each client's needs, helping organizations provide faster responses while reducing the pressure on human support teams.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('AI Chatbot Development')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 06: Graphic Design -->
+      <div class="dryclean-hanger-assembly" data-category="creative" style="--i: 6;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 06</span>
+              <span class="service-category-tag">Creative & Production</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+            </div>
+            <h3 class="service-card-title">Graphic Design</h3>
+            <p class="service-card-desc">Animation Hub provides professional graphic design services for businesses, organizations, campaigns, products, and individuals. Our creative team develops brand identities, promotional materials, social media graphics, advertising designs, brochures, posters, digital artwork, publications, and other visual communication materials. We combine creativity with clear communication to ensure every design communicates the client's message effectively and maintains a professional visual identity.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Graphic Design')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 07: Video Editing -->
+      <div class="dryclean-hanger-assembly" data-category="creative" style="--i: 7;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 07</span>
+              <span class="service-category-tag">Creative & Production</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>
+            </div>
+            <h3 class="service-card-title">Video Editing</h3>
+            <p class="service-card-desc">Animation Hub transforms raw video footage into polished, engaging content suitable for professional and digital audiences. Our editing services include cutting and sequencing footage, sound enhancement, transitions, motion graphics, subtitles, color correction, music integration, and platform-specific formatting. We work with businesses, creators, organizations, and brands producing content for YouTube, social media, advertising, events, documentaries, and corporate communications.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Video Editing')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 08: Web Design & Development -->
+      <div class="dryclean-hanger-assembly" data-category="dev" style="--i: 8;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 08</span>
+              <span class="service-category-tag">Development & Engineering</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </div>
+            <h3 class="service-card-title">Web Design & Development</h3>
+            <p class="service-card-desc">Animation Hub designs and develops modern websites that give businesses a professional digital presence. We create responsive websites for companies, nonprofits, entrepreneurs, educational institutions, campaigns, and organizations. Our services can include website structure, user experience, visual design, development, content integration, mobile optimization, and ongoing improvements, helping clients create websites that inform visitors, build credibility, and generate opportunities.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Web Design & Development')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 09: Social Media Management -->
+      <div class="dryclean-hanger-assembly" data-category="growth" style="--i: 9;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 09</span>
+              <span class="service-category-tag">Digital Growth & Strategy</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+            </div>
+            <h3 class="service-card-title">Social Media Management</h3>
+            <p class="service-card-desc">Animation Hub helps businesses build and maintain an effective social media presence. We develop content strategies, create graphics and videos, schedule posts, monitor engagement, respond to audiences, and track performance. Our team can manage platforms such as Instagram, Facebook, LinkedIn, TikTok, and YouTube, helping organizations consistently communicate their message, grow their audience, strengthen their brand, and generate business opportunities.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Social Media Management')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 10: SEO Services -->
+      <div class="dryclean-hanger-assembly" data-category="growth" style="--i: 10;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 10</span>
+              <span class="service-category-tag">Digital Growth & Strategy</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><polyline points="11 8 11 12 14 14"></polyline></svg>
+            </div>
+            <h3 class="service-card-title">SEO Services</h3>
+            <p class="service-card-desc">Animation Hub provides search engine optimization services designed to help businesses become easier to discover online. We research relevant keywords, optimize website content, improve page structure, develop SEO-focused content strategies, and monitor search performance. Our objective is to help clients attract more relevant organic traffic, improve their online visibility, reach potential customers, and build a stronger long-term digital presence.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('SEO Services')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 11: Virtual Assistant Services -->
+      <div class="dryclean-hanger-assembly" data-category="operations" style="--i: 11;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 11</span>
+              <span class="service-category-tag">Operations & Business Support</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+            </div>
+            <h3 class="service-card-title">Virtual Assistant Services</h3>
+            <p class="service-card-desc">Animation Hub provides reliable virtual assistance for businesses that need additional administrative and operational support. Our professionals can assist with online research, scheduling, data entry, document preparation, customer communication, email management, content coordination, database updates, and other routine business activities. This allows business owners and teams to focus on higher-value responsibilities while maintaining efficient day-to-day operations.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Virtual Assistant Services')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 12: Bookkeeping & Accounting Support -->
+      <div class="dryclean-hanger-assembly" data-category="operations" style="--i: 12;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 12</span>
+              <span class="service-category-tag">Operations & Business Support</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="6" y1="8" x2="6" y2="8"></line><line x1="10" y1="8" x2="10" y2="8"></line><line x1="14" y1="8" x2="14" y2="8"></line><line x1="18" y1="8" x2="18" y2="8"></line><line x1="6" y1="12" x2="6" y2="12"></line><line x1="10" y1="12" x2="10" y2="12"></line><line x1="14" y1="12" x2="14" y2="12"></line><line x1="18" y1="12" x2="18" y2="12"></line><line x1="6" y1="16" x2="18" y2="16"></line></svg>
+            </div>
+            <h3 class="service-card-title">Bookkeeping & Accounting Support</h3>
+            <p class="service-card-desc">Animation Hub provides remote bookkeeping and financial administration support to help businesses maintain organized financial records. Services can include transaction organization, expense tracking, invoice management, financial data entry, reconciliation support, reporting preparation, and administrative accounting tasks. Our goal is to help businesses maintain better financial organization and provide their accountants or financial professionals with accurate, structured information.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Bookkeeping & Accounting Support')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 13: UX/UI Design -->
+      <div class="dryclean-hanger-assembly" data-category="creative" style="--i: 13;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 13</span>
+              <span class="service-category-tag">Creative & Production</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            </div>
+            <h3 class="service-card-title">UX/UI Design</h3>
+            <p class="service-card-desc">Animation Hub creates user experiences and interfaces that make websites, applications, and digital products easier and more enjoyable to use. We research user needs, develop information structures, create wireframes, design interfaces, and develop interactive prototypes. Our approach combines visual creativity with usability, helping businesses create digital products that are intuitive, accessible, professional, and aligned with their customers' expectations.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('UX/UI Design')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 14: Mobile App Development -->
+      <div class="dryclean-hanger-assembly" data-category="dev" style="--i: 14;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 14</span>
+              <span class="service-category-tag">Development & Engineering</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            </div>
+            <h3 class="service-card-title">Mobile App Development</h3>
+            <p class="service-card-desc">Animation Hub develops mobile applications designed around specific business, educational, social, and commercial objectives. We help clients move from initial concepts to application design, development, testing, and deployment. Our team can create applications that connect businesses with customers, deliver digital services, support education, manage communities, or create new digital products and revenue opportunities.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Mobile App Development')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 15: Machine Learning Solutions -->
+      <div class="dryclean-hanger-assembly" data-category="ai" style="--i: 15;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 15</span>
+              <span class="service-category-tag">AI & Intelligent Systems</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path><circle cx="18" cy="7" r="3"></circle><circle cx="6" cy="11" r="3"></circle></svg>
+            </div>
+            <h3 class="service-card-title">Machine Learning Solutions</h3>
+            <p class="service-card-desc">Animation Hub provides machine-learning development and support for organizations looking to use data to build smarter systems. Our services can include data preparation, model development, predictive analytics, classification, recommendation systems, automation, and AI-powered applications. We work with clients to identify practical problems where machine learning can improve decision-making, automate processes, recognize patterns, or create new digital capabilities.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Machine Learning Solutions')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 16: AI Data Annotation -->
+      <div class="dryclean-hanger-assembly" data-category="ai" style="--i: 16;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 16</span>
+              <span class="service-category-tag">AI & Intelligent Systems</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+            </div>
+            <h3 class="service-card-title">AI Data Annotation</h3>
+            <p class="service-card-desc">Animation Hub provides data annotation and labeling services that help organizations prepare datasets for artificial intelligence and machine-learning systems. Our teams can label images, videos, text, audio, and other datasets according to defined project requirements. High-quality annotation helps AI systems learn more effectively, making this service valuable for companies developing computer vision, language, autonomous systems, and other AI technologies.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('AI Data Annotation')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 17: Digital Marketing -->
+      <div class="dryclean-hanger-assembly" data-category="growth" style="--i: 17;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 17</span>
+              <span class="service-category-tag">Digital Growth & Strategy</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+            </div>
+            <h3 class="service-card-title">Digital Marketing</h3>
+            <p class="service-card-desc">Animation Hub develops digital marketing strategies designed to help businesses attract attention, reach customers, and grow online. Our services can combine social media, content marketing, email campaigns, SEO, digital advertising, creative production, audience research, and analytics. We develop campaigns around specific business objectives, helping clients improve brand awareness, generate leads, increase engagement, and create measurable digital growth.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Digital Marketing')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 18: Presentation Design -->
+      <div class="dryclean-hanger-assembly" data-category="creative" style="--i: 18;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 18</span>
+              <span class="service-category-tag">Creative & Production</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line><path d="M7 8h10M7 12h6"></path></svg>
+            </div>
+            <h3 class="service-card-title">Presentation Design</h3>
+            <p class="service-card-desc">Animation Hub transforms complex information, business ideas, reports, and concepts into professional and visually engaging presentations. We design presentations for investors, corporate meetings, conferences, educational programs, sales pitches, training sessions, and public speaking. Our team combines storytelling, visual design, information structure, graphics, animation, and data visualization to help clients communicate their ideas clearly and make stronger presentations.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Presentation Design')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 19: 3D Animation & Motion Design -->
+      <div class="dryclean-hanger-assembly" data-category="creative" style="--i: 19;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 19</span>
+              <span class="service-category-tag">Creative & Production</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            </div>
+            <h3 class="service-card-title">3D Animation & Motion Design</h3>
+            <p class="service-card-desc">Animation Hub creates professional 3D animations and motion graphics for brands, products, businesses, campaigns, entertainment, education, and digital experiences. Our services can include product visualization, character animation, explainer videos, promotional content, motion graphics, environmental visualization, and creative storytelling. We combine technology and artistic direction to transform ideas into compelling visual experiences for modern audiences.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('3D Animation & Motion Design')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 20: Project Management & Operations -->
+      <div class="dryclean-hanger-assembly" data-category="operations" style="--i: 20;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 20</span>
+              <span class="service-category-tag">Operations & Business Support</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M9 12l2 2 4-4"></path></svg>
+            </div>
+            <h3 class="service-card-title">Project Management & Operations</h3>
+            <p class="service-card-desc">Animation Hub provides remote project management and operational support to help businesses organize people, processes, deadlines, and deliverables. Our professionals can coordinate teams, establish workflows, monitor project progress, manage documentation, communicate with stakeholders, and track milestones. We help businesses maintain accountability and structure, allowing projects to move efficiently from planning through execution and completion.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Project Management & Operations')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+                
+      <!-- HANGING DRY CLEANING BOX 01: AI Integration Specialist -->
+      <div class="dryclean-hanger-assembly" data-category="ai" style="--i: 21;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 01</span>
+              <span class="service-category-tag">AI & Intelligent Systems</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg>
+            </div>
+            <h3 class="service-card-title">AI Integration Specialist</h3>
+            <p class="service-card-desc">Animation Hub helps businesses identify practical opportunities to integrate artificial intelligence into their existing operations. We connect businesses with AI tools that can automate repetitive tasks, improve customer experiences, streamline workflows, analyze information, and increase productivity. Our team focuses on practical AI implementation that delivers measurable business value without requiring organizations to completely rebuild their existing systems.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('AI Integration Specialist')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 02: Full-Stack Development -->
+      <div class="dryclean-hanger-assembly" data-category="dev" style="--i: 22;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 02</span>
+              <span class="service-category-tag">Development & Engineering</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+            </div>
+            <h3 class="service-card-title">Full-Stack Development</h3>
+            <p class="service-card-desc">Animation Hub provides full-stack web development services covering both the visible user experience and the technology powering applications behind the scenes. We develop responsive websites, web applications, dashboards, platforms, databases, and business systems designed around specific client requirements. Our developers help businesses transform ideas into functional, scalable digital products that can grow alongside their operations.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Full-Stack Development')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 03: AI Video Generation & Editing -->
+      <div class="dryclean-hanger-assembly" data-category="ai" style="--i: 23;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 03</span>
+              <span class="service-category-tag">AI & Intelligent Systems</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+            </div>
+            <h3 class="service-card-title">AI Video Generation & Editing</h3>
+            <p class="service-card-desc">Animation Hub combines artificial intelligence with professional storytelling and video production to create engaging visual content. We produce promotional videos, advertisements, educational content, social media videos, animated stories, explainers, corporate communications, and creative campaigns. Our service can include scripting, AI-generated visuals, animation, voiceovers, music, editing, subtitles, and post-production for multiple digital platforms.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('AI Video Generation & Editing')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 04: Data Analytics -->
+      <div class="dryclean-hanger-assembly" data-category="growth" style="--i: 24;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 04</span>
+              <span class="service-category-tag">Digital Growth & Strategy</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            </div>
+            <h3 class="service-card-title">Data Analytics</h3>
+            <p class="service-card-desc">Animation Hub helps businesses turn large amounts of information into useful insights. We organize, analyze, visualize, and interpret business data to help organizations understand customers, operations, sales, marketing performance, and other important indicators. Our team can create reports, dashboards, data visualizations, and analytical systems that make complex information easier for business leaders to understand and use.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Data Analytics')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 05: AI Chatbot Development -->
+      <div class="dryclean-hanger-assembly" data-category="ai" style="--i: 25;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 05</span>
+              <span class="service-category-tag">AI & Intelligent Systems</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <h3 class="service-card-title">AI Chatbot Development</h3>
+            <p class="service-card-desc">Animation Hub develops intelligent AI-powered chatbots designed to support businesses, organizations, schools, and digital platforms. Chatbots can assist with customer inquiries, frequently asked questions, lead generation, sales support, education, internal communication, and customer service. We design conversational systems around each client's needs, helping organizations provide faster responses while reducing the pressure on human support teams.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('AI Chatbot Development')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 06: Graphic Design -->
+      <div class="dryclean-hanger-assembly" data-category="creative" style="--i: 26;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 06</span>
+              <span class="service-category-tag">Creative & Production</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+            </div>
+            <h3 class="service-card-title">Graphic Design</h3>
+            <p class="service-card-desc">Animation Hub provides professional graphic design services for businesses, organizations, campaigns, products, and individuals. Our creative team develops brand identities, promotional materials, social media graphics, advertising designs, brochures, posters, digital artwork, publications, and other visual communication materials. We combine creativity with clear communication to ensure every design communicates the client's message effectively and maintains a professional visual identity.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Graphic Design')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 07: Video Editing -->
+      <div class="dryclean-hanger-assembly" data-category="creative" style="--i: 27;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 07</span>
+              <span class="service-category-tag">Creative & Production</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>
+            </div>
+            <h3 class="service-card-title">Video Editing</h3>
+            <p class="service-card-desc">Animation Hub transforms raw video footage into polished, engaging content suitable for professional and digital audiences. Our editing services include cutting and sequencing footage, sound enhancement, transitions, motion graphics, subtitles, color correction, music integration, and platform-specific formatting. We work with businesses, creators, organizations, and brands producing content for YouTube, social media, advertising, events, documentaries, and corporate communications.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Video Editing')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 08: Web Design & Development -->
+      <div class="dryclean-hanger-assembly" data-category="dev" style="--i: 28;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 08</span>
+              <span class="service-category-tag">Development & Engineering</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            </div>
+            <h3 class="service-card-title">Web Design & Development</h3>
+            <p class="service-card-desc">Animation Hub designs and develops modern websites that give businesses a professional digital presence. We create responsive websites for companies, nonprofits, entrepreneurs, educational institutions, campaigns, and organizations. Our services can include website structure, user experience, visual design, development, content integration, mobile optimization, and ongoing improvements, helping clients create websites that inform visitors, build credibility, and generate opportunities.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Web Design & Development')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 09: Social Media Management -->
+      <div class="dryclean-hanger-assembly" data-category="growth" style="--i: 29;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 09</span>
+              <span class="service-category-tag">Digital Growth & Strategy</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
+            </div>
+            <h3 class="service-card-title">Social Media Management</h3>
+            <p class="service-card-desc">Animation Hub helps businesses build and maintain an effective social media presence. We develop content strategies, create graphics and videos, schedule posts, monitor engagement, respond to audiences, and track performance. Our team can manage platforms such as Instagram, Facebook, LinkedIn, TikTok, and YouTube, helping organizations consistently communicate their message, grow their audience, strengthen their brand, and generate business opportunities.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Social Media Management')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 10: SEO Services -->
+      <div class="dryclean-hanger-assembly" data-category="growth" style="--i: 30;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 10</span>
+              <span class="service-category-tag">Digital Growth & Strategy</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><polyline points="11 8 11 12 14 14"></polyline></svg>
+            </div>
+            <h3 class="service-card-title">SEO Services</h3>
+            <p class="service-card-desc">Animation Hub provides search engine optimization services designed to help businesses become easier to discover online. We research relevant keywords, optimize website content, improve page structure, develop SEO-focused content strategies, and monitor search performance. Our objective is to help clients attract more relevant organic traffic, improve their online visibility, reach potential customers, and build a stronger long-term digital presence.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('SEO Services')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 11: Virtual Assistant Services -->
+      <div class="dryclean-hanger-assembly" data-category="operations" style="--i: 31;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 11</span>
+              <span class="service-category-tag">Operations & Business Support</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
+            </div>
+            <h3 class="service-card-title">Virtual Assistant Services</h3>
+            <p class="service-card-desc">Animation Hub provides reliable virtual assistance for businesses that need additional administrative and operational support. Our professionals can assist with online research, scheduling, data entry, document preparation, customer communication, email management, content coordination, database updates, and other routine business activities. This allows business owners and teams to focus on higher-value responsibilities while maintaining efficient day-to-day operations.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Virtual Assistant Services')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 12: Bookkeeping & Accounting Support -->
+      <div class="dryclean-hanger-assembly" data-category="operations" style="--i: 32;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 12</span>
+              <span class="service-category-tag">Operations & Business Support</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="6" y1="8" x2="6" y2="8"></line><line x1="10" y1="8" x2="10" y2="8"></line><line x1="14" y1="8" x2="14" y2="8"></line><line x1="18" y1="8" x2="18" y2="8"></line><line x1="6" y1="12" x2="6" y2="12"></line><line x1="10" y1="12" x2="10" y2="12"></line><line x1="14" y1="12" x2="14" y2="12"></line><line x1="18" y1="12" x2="18" y2="12"></line><line x1="6" y1="16" x2="18" y2="16"></line></svg>
+            </div>
+            <h3 class="service-card-title">Bookkeeping & Accounting Support</h3>
+            <p class="service-card-desc">Animation Hub provides remote bookkeeping and financial administration support to help businesses maintain organized financial records. Services can include transaction organization, expense tracking, invoice management, financial data entry, reconciliation support, reporting preparation, and administrative accounting tasks. Our goal is to help businesses maintain better financial organization and provide their accountants or financial professionals with accurate, structured information.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Bookkeeping & Accounting Support')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 13: UX/UI Design -->
+      <div class="dryclean-hanger-assembly" data-category="creative" style="--i: 33;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 13</span>
+              <span class="service-category-tag">Creative & Production</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+            </div>
+            <h3 class="service-card-title">UX/UI Design</h3>
+            <p class="service-card-desc">Animation Hub creates user experiences and interfaces that make websites, applications, and digital products easier and more enjoyable to use. We research user needs, develop information structures, create wireframes, design interfaces, and develop interactive prototypes. Our approach combines visual creativity with usability, helping businesses create digital products that are intuitive, accessible, professional, and aligned with their customers' expectations.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('UX/UI Design')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 14: Mobile App Development -->
+      <div class="dryclean-hanger-assembly" data-category="dev" style="--i: 34;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 14</span>
+              <span class="service-category-tag">Development & Engineering</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            </div>
+            <h3 class="service-card-title">Mobile App Development</h3>
+            <p class="service-card-desc">Animation Hub develops mobile applications designed around specific business, educational, social, and commercial objectives. We help clients move from initial concepts to application design, development, testing, and deployment. Our team can create applications that connect businesses with customers, deliver digital services, support education, manage communities, or create new digital products and revenue opportunities.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Mobile App Development')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 15: Machine Learning Solutions -->
+      <div class="dryclean-hanger-assembly" data-category="ai" style="--i: 35;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 15</span>
+              <span class="service-category-tag">AI & Intelligent Systems</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path><circle cx="18" cy="7" r="3"></circle><circle cx="6" cy="11" r="3"></circle></svg>
+            </div>
+            <h3 class="service-card-title">Machine Learning Solutions</h3>
+            <p class="service-card-desc">Animation Hub provides machine-learning development and support for organizations looking to use data to build smarter systems. Our services can include data preparation, model development, predictive analytics, classification, recommendation systems, automation, and AI-powered applications. We work with clients to identify practical problems where machine learning can improve decision-making, automate processes, recognize patterns, or create new digital capabilities.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Machine Learning Solutions')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 16: AI Data Annotation -->
+      <div class="dryclean-hanger-assembly" data-category="ai" style="--i: 36;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 16</span>
+              <span class="service-category-tag">AI & Intelligent Systems</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+            </div>
+            <h3 class="service-card-title">AI Data Annotation</h3>
+            <p class="service-card-desc">Animation Hub provides data annotation and labeling services that help organizations prepare datasets for artificial intelligence and machine-learning systems. Our teams can label images, videos, text, audio, and other datasets according to defined project requirements. High-quality annotation helps AI systems learn more effectively, making this service valuable for companies developing computer vision, language, autonomous systems, and other AI technologies.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('AI Data Annotation')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 17: Digital Marketing -->
+      <div class="dryclean-hanger-assembly" data-category="growth" style="--i: 37;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 17</span>
+              <span class="service-category-tag">Digital Growth & Strategy</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+            </div>
+            <h3 class="service-card-title">Digital Marketing</h3>
+            <p class="service-card-desc">Animation Hub develops digital marketing strategies designed to help businesses attract attention, reach customers, and grow online. Our services can combine social media, content marketing, email campaigns, SEO, digital advertising, creative production, audience research, and analytics. We develop campaigns around specific business objectives, helping clients improve brand awareness, generate leads, increase engagement, and create measurable digital growth.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Digital Marketing')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 18: Presentation Design -->
+      <div class="dryclean-hanger-assembly" data-category="creative" style="--i: 38;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 18</span>
+              <span class="service-category-tag">Creative & Production</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line><path d="M7 8h10M7 12h6"></path></svg>
+            </div>
+            <h3 class="service-card-title">Presentation Design</h3>
+            <p class="service-card-desc">Animation Hub transforms complex information, business ideas, reports, and concepts into professional and visually engaging presentations. We design presentations for investors, corporate meetings, conferences, educational programs, sales pitches, training sessions, and public speaking. Our team combines storytelling, visual design, information structure, graphics, animation, and data visualization to help clients communicate their ideas clearly and make stronger presentations.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Presentation Design')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 19: 3D Animation & Motion Design -->
+      <div class="dryclean-hanger-assembly" data-category="creative" style="--i: 39;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 19</span>
+              <span class="service-category-tag">Creative & Production</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            </div>
+            <h3 class="service-card-title">3D Animation & Motion Design</h3>
+            <p class="service-card-desc">Animation Hub creates professional 3D animations and motion graphics for brands, products, businesses, campaigns, entertainment, education, and digital experiences. Our services can include product visualization, character animation, explainer videos, promotional content, motion graphics, environmental visualization, and creative storytelling. We combine technology and artistic direction to transform ideas into compelling visual experiences for modern audiences.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('3D Animation & Motion Design')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
+      <!-- HANGING DRY CLEANING BOX 20: Project Management & Operations -->
+      <div class="dryclean-hanger-assembly" data-category="operations" style="--i: 40;">
+        <!-- Trolley riding the cable -->
+        <div class="dryclean-trolley">
+          <div class="trolley-wheel"></div>
+          <div class="trolley-bracket"></div>
+        </div>
+        
+        <!-- Suspension rod & triangle hanger frame -->
+        <div class="dryclean-suspension-wire">
+          <div class="suspension-rod"></div>
+          <div class="hanger-swivel"></div>
+          <div class="hanger-frame">
+            <div class="hanger-clip"></div>
+            <div class="hanger-clip"></div>
+          </div>
+        </div>
+
+        <!-- The Hanging Service Card -->
+        <div class="service-card-item hanging-box">
+          <div>
+            <div class="service-card-top">
+              <span class="service-index-number">SERVICE 20</span>
+              <span class="service-category-tag">Operations & Business Support</span>
+            </div>
+            <div class="service-icon-wrapper">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M9 12l2 2 4-4"></path></svg>
+            </div>
+            <h3 class="service-card-title">Project Management & Operations</h3>
+            <p class="service-card-desc">Animation Hub provides remote project management and operational support to help businesses organize people, processes, deadlines, and deliverables. Our professionals can coordinate teams, establish workflows, monitor project progress, manage documentation, communicate with stakeholders, and track milestones. We help businesses maintain accountability and structure, allowing projects to move efficiently from planning through execution and completion.</p>
+          </div>
+          <div class="service-card-action">
+            <button class="service-request-link" onclick="openApplyModal('Project Management & Operations')">REQUEST SERVICE &rarr;</button>
+          </div>
+        </div>
+      </div>
+    
               </div>
             </div>
-
-            <!-- 02: Full-Stack Development -->
-            <div class="service-card-item" data-category="dev">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 02</span>
-                  <span class="service-category-tag">Development & Engineering</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
-                </div>
-                <h3 class="service-card-title">Full-Stack Development</h3>
-                <p class="service-card-desc">
-                  Animation Hub provides full-stack web development services covering both the visible user experience and the technology powering applications behind the scenes. We develop responsive websites, web applications, dashboards, platforms, databases, and business systems designed around specific client requirements. Our developers help businesses transform ideas into functional, scalable digital products that can grow alongside their operations.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('Full-Stack Development')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- 03: AI Video Generation & Editing -->
-            <div class="service-card-item" data-category="ai">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 03</span>
-                  <span class="service-category-tag">AI & Intelligent Systems</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
-                </div>
-                <h3 class="service-card-title">AI Video Generation & Editing</h3>
-                <p class="service-card-desc">
-                  Animation Hub combines artificial intelligence with professional storytelling and video production to create engaging visual content. We produce promotional videos, advertisements, educational content, social media videos, animated stories, explainers, corporate communications, and creative campaigns. Our service can include scripting, AI-generated visuals, animation, voiceovers, music, editing, subtitles, and post-production for multiple digital platforms.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('AI Video Generation & Editing')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- 04: Data Analytics -->
-            <div class="service-card-item" data-category="growth">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 04</span>
-                  <span class="service-category-tag">Digital Growth & Strategy</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-                </div>
-                <h3 class="service-card-title">Data Analytics</h3>
-                <p class="service-card-desc">
-                  Animation Hub helps businesses turn large amounts of information into useful insights. We organize, analyze, visualize, and interpret business data to help organizations understand customers, operations, sales, marketing performance, and other important indicators. Our team can create reports, dashboards, data visualizations, and analytical systems that make complex information easier for business leaders to understand and use.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('Data Analytics')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- 05: AI Chatbot Development -->
-            <div class="service-card-item" data-category="ai">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 05</span>
-                  <span class="service-category-tag">AI & Intelligent Systems</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                </div>
-                <h3 class="service-card-title">AI Chatbot Development</h3>
-                <p class="service-card-desc">
-                  Animation Hub develops intelligent AI-powered chatbots designed to support businesses, organizations, schools, and digital platforms. Chatbots can assist with customer inquiries, frequently asked questions, lead generation, sales support, education, internal communication, and customer service. We design conversational systems around each client's needs, helping organizations provide faster responses while reducing the pressure on human support teams.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('AI Chatbot Development')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- 06: Graphic Design -->
-            <div class="service-card-item" data-category="creative">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 06</span>
-                  <span class="service-category-tag">Creative & Production</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
-                </div>
-                <h3 class="service-card-title">Graphic Design</h3>
-                <p class="service-card-desc">
-                  Animation Hub provides professional graphic design services for businesses, organizations, campaigns, products, and individuals. Our creative team develops brand identities, promotional materials, social media graphics, advertising designs, brochures, posters, digital artwork, publications, and other visual communication materials. We combine creativity with clear communication to ensure every design communicates the client's message effectively and maintains a professional visual identity.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('Graphic Design')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- 07: Video Editing -->
-            <div class="service-card-item" data-category="creative">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 07</span>
-                  <span class="service-category-tag">Creative & Production</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><line x1="20" y1="4" x2="8.12" y2="15.88"></line><line x1="14.47" y1="14.48" x2="20" y2="20"></line><line x1="8.12" y1="8.12" x2="12" y2="12"></line></svg>
-                </div>
-                <h3 class="service-card-title">Video Editing</h3>
-                <p class="service-card-desc">
-                  Animation Hub transforms raw video footage into polished, engaging content suitable for professional and digital audiences. Our editing services include cutting and sequencing footage, sound enhancement, transitions, motion graphics, subtitles, color correction, music integration, and platform-specific formatting. We work with businesses, creators, organizations, and brands producing content for YouTube, social media, advertising, events, documentaries, and corporate communications.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('Video Editing')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- 08: Web Design & Development -->
-            <div class="service-card-item" data-category="dev">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 08</span>
-                  <span class="service-category-tag">Development & Engineering</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                </div>
-                <h3 class="service-card-title">Web Design & Development</h3>
-                <p class="service-card-desc">
-                  Animation Hub designs and develops modern websites that give businesses a professional digital presence. We create responsive websites for companies, nonprofits, entrepreneurs, educational institutions, campaigns, and organizations. Our services can include website structure, user experience, visual design, development, content integration, mobile optimization, and ongoing improvements, helping clients create websites that inform visitors, build credibility, and generate opportunities.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('Web Design & Development')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- 09: Social Media Management -->
-            <div class="service-card-item" data-category="growth">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 09</span>
-                  <span class="service-category-tag">Digital Growth & Strategy</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line></svg>
-                </div>
-                <h3 class="service-card-title">Social Media Management</h3>
-                <p class="service-card-desc">
-                  Animation Hub helps businesses build and maintain an effective social media presence. We develop content strategies, create graphics and videos, schedule posts, monitor engagement, respond to audiences, and track performance. Our team can manage platforms such as Instagram, Facebook, LinkedIn, TikTok, and YouTube, helping organizations consistently communicate their message, grow their audience, strengthen their brand, and generate business opportunities.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('Social Media Management')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- 10: SEO Services -->
-            <div class="service-card-item" data-category="growth">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 10</span>
-                  <span class="service-category-tag">Digital Growth & Strategy</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><polyline points="11 8 11 12 14 14"></polyline></svg>
-                </div>
-                <h3 class="service-card-title">SEO Services</h3>
-                <p class="service-card-desc">
-                  Animation Hub provides search engine optimization services designed to help businesses become easier to discover online. We research relevant keywords, optimize website content, improve page structure, develop SEO-focused content strategies, and monitor search performance. Our objective is to help clients attract more relevant organic traffic, improve their online visibility, reach potential customers, and build a stronger long-term digital presence.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('SEO Services')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- 11: Virtual Assistant Services -->
-            <div class="service-card-item" data-category="operations">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 11</span>
-                  <span class="service-category-tag">Operations & Business Support</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg>
-                </div>
-                <h3 class="service-card-title">Virtual Assistant Services</h3>
-                <p class="service-card-desc">
-                  Animation Hub provides reliable virtual assistance for businesses that need additional administrative and operational support. Our professionals can assist with online research, scheduling, data entry, document preparation, customer communication, email management, content coordination, database updates, and other routine business activities. This allows business owners and teams to focus on higher-value responsibilities while maintaining efficient day-to-day operations.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('Virtual Assistant Services')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- 12: Bookkeeping & Accounting Support -->
-            <div class="service-card-item" data-category="operations">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 12</span>
-                  <span class="service-category-tag">Operations & Business Support</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="6" y1="8" x2="6" y2="8"></line><line x1="10" y1="8" x2="10" y2="8"></line><line x1="14" y1="8" x2="14" y2="8"></line><line x1="18" y1="8" x2="18" y2="8"></line><line x1="6" y1="12" x2="6" y2="12"></line><line x1="10" y1="12" x2="10" y2="12"></line><line x1="14" y1="12" x2="14" y2="12"></line><line x1="18" y1="12" x2="18" y2="12"></line><line x1="6" y1="16" x2="18" y2="16"></line></svg>
-                </div>
-                <h3 class="service-card-title">Bookkeeping & Accounting Support</h3>
-                <p class="service-card-desc">
-                  Animation Hub provides remote bookkeeping and financial administration support to help businesses maintain organized financial records. Services can include transaction organization, expense tracking, invoice management, financial data entry, reconciliation support, reporting preparation, and administrative accounting tasks. Our goal is to help businesses maintain better financial organization and provide their accountants or financial professionals with accurate, structured information.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('Bookkeeping & Accounting Support')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- 13: UX/UI Design -->
-            <div class="service-card-item" data-category="creative">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 13</span>
-                  <span class="service-category-tag">Creative & Production</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                </div>
-                <h3 class="service-card-title">UX/UI Design</h3>
-                <p class="service-card-desc">
-                  Animation Hub creates user experiences and interfaces that make websites, applications, and digital products easier and more enjoyable to use. We research user needs, develop information structures, create wireframes, design interfaces, and develop interactive prototypes. Our approach combines visual creativity with usability, helping businesses create digital products that are intuitive, accessible, professional, and aligned with their customers' expectations.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('UX/UI Design')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- 14: Mobile App Development -->
-            <div class="service-card-item" data-category="dev">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 14</span>
-                  <span class="service-category-tag">Development & Engineering</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
-                </div>
-                <h3 class="service-card-title">Mobile App Development</h3>
-                <p class="service-card-desc">
-                  Animation Hub develops mobile applications designed around specific business, educational, social, and commercial objectives. We help clients move from initial concepts to application design, development, testing, and deployment. Our team can create applications that connect businesses with customers, deliver digital services, support education, manage communities, or create new digital products and revenue opportunities.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('Mobile App Development')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- 15: Machine Learning Solutions -->
-            <div class="service-card-item" data-category="ai">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 15</span>
-                  <span class="service-category-tag">AI & Intelligent Systems</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"></path><path d="M12 20V4"></path><path d="M6 20v-6"></path><circle cx="18" cy="7" r="3"></circle><circle cx="6" cy="11" r="3"></circle></svg>
-                </div>
-                <h3 class="service-card-title">Machine Learning Solutions</h3>
-                <p class="service-card-desc">
-                  Animation Hub provides machine-learning development and support for organizations looking to use data to build smarter systems. Our services can include data preparation, model development, predictive analytics, classification, recommendation systems, automation, and AI-powered applications. We work with clients to identify practical problems where machine learning can improve decision-making, automate processes, recognize patterns, or create new digital capabilities.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('Machine Learning Solutions')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- 16: AI Data Annotation -->
-            <div class="service-card-item" data-category="ai">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 16</span>
-                  <span class="service-category-tag">AI & Intelligent Systems</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
-                </div>
-                <h3 class="service-card-title">AI Data Annotation</h3>
-                <p class="service-card-desc">
-                  Animation Hub provides data annotation and labeling services that help organizations prepare datasets for artificial intelligence and machine-learning systems. Our teams can label images, videos, text, audio, and other datasets according to defined project requirements. High-quality annotation helps AI systems learn more effectively, making this service valuable for companies developing computer vision, language, autonomous systems, and other AI technologies.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('AI Data Annotation')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- 17: Digital Marketing -->
-            <div class="service-card-item" data-category="growth">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 17</span>
-                  <span class="service-category-tag">Digital Growth & Strategy</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-                </div>
-                <h3 class="service-card-title">Digital Marketing</h3>
-                <p class="service-card-desc">
-                  Animation Hub develops digital marketing strategies designed to help businesses attract attention, reach customers, and grow online. Our services can combine social media, content marketing, email campaigns, SEO, digital advertising, creative production, audience research, and analytics. We develop campaigns around specific business objectives, helping clients improve brand awareness, generate leads, increase engagement, and create measurable digital growth.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('Digital Marketing')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- 18: Presentation Design -->
-            <div class="service-card-item" data-category="creative">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 18</span>
-                  <span class="service-category-tag">Creative & Production</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line><path d="M7 8h10M7 12h6"></path></svg>
-                </div>
-                <h3 class="service-card-title">Presentation Design</h3>
-                <p class="service-card-desc">
-                  Animation Hub transforms complex information, business ideas, reports, and concepts into professional and visually engaging presentations. We design presentations for investors, corporate meetings, conferences, educational programs, sales pitches, training sessions, and public speaking. Our team combines storytelling, visual design, information structure, graphics, animation, and data visualization to help clients communicate their ideas clearly and make stronger presentations.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('Presentation Design')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- 19: 3D Animation & Motion Design -->
-            <div class="service-card-item" data-category="creative">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 19</span>
-                  <span class="service-category-tag">Creative & Production</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                </div>
-                <h3 class="service-card-title">3D Animation & Motion Design</h3>
-                <p class="service-card-desc">
-                  Animation Hub creates professional 3D animations and motion graphics for brands, products, businesses, campaigns, entertainment, education, and digital experiences. Our services can include product visualization, character animation, explainer videos, promotional content, motion graphics, environmental visualization, and creative storytelling. We combine technology and artistic direction to transform ideas into compelling visual experiences for modern audiences.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('3D Animation & Motion Design')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
-            <!-- 20: Project Management & Operations -->
-            <div class="service-card-item" data-category="operations">
-              <div>
-                <div class="service-card-top">
-                  <span class="service-index-number">SERVICE 20</span>
-                  <span class="service-category-tag">Operations & Business Support</span>
-                </div>
-                <div class="service-icon-wrapper">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M9 12l2 2 4-4"></path></svg>
-                </div>
-                <h3 class="service-card-title">Project Management & Operations</h3>
-                <p class="service-card-desc">
-                  Animation Hub provides remote project management and operational support to help businesses organize people, processes, deadlines, and deliverables. Our professionals can coordinate teams, establish workflows, monitor project progress, manage documentation, communicate with stakeholders, and track milestones. We help businesses maintain accountability and structure, allowing projects to move efficiently from planning through execution and completion.
-                </p>
-              </div>
-              <div class="service-card-action">
-                <button class="service-request-link" onclick="openApplyModal('Project Management & Operations')">REQUEST SERVICE &rarr;</button>
-              </div>
-            </div>
-
           </div>
 
           <!-- Bottom Services Banner -->
@@ -1084,28 +2102,6 @@
               <p class="brand-identity-lead">
                 "Our vision is to be a leading force in Africa’s animation and creative technology ecosystem, empowering creators to tell stories that inspire and connect with the world."
               </p>
-            </div>
-          </div>
-
-          <!-- Team & Community Card (PDF Page 2) -->
-          <div class="who-are-we-card" style="margin-bottom: 4rem;">
-            <div class="who-are-we-grid">
-              <div class="who-are-we-text-box">
-                <div class="brand-pill-tag">THE ECOSYSTEM</div>
-                <h2 class="who-are-we-title">Building Africa’s Creative Future</h2>
-                <p class="who-are-we-lead">
-                  These guidelines define our visual identity, brand personality, and communication style, helping us consistently communicate our mission.
-                </p>
-                <p class="who-are-we-body">
-                  Our brand guidelines keep Animation Hub consistent, recognizable, and impactful. They guide how we present our identity and connect with our audience as we grow.
-                </p>
-                <div style="margin-top: 1.5rem;">
-                  <button class="btn btn-amber" onclick="openApplyModal()">WORK WITH US &rarr;</button>
-                </div>
-              </div>
-              <div class="who-are-we-image-box">
-                <img src="assets/images/who-we-are-team-cropped.jpg" alt="Animation Hub Leadership and Creators" class="who-are-we-img">
-              </div>
             </div>
           </div>
 

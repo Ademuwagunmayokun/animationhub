@@ -5,6 +5,8 @@
 let conveyorPaused = false;
 let currentSpeed = 1;
 
+import { toggle3DWireframe, pulse3DShockwave } from './three-scene.js';
+
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Animation Hub 3D Creative Engine Initialized.');
 });

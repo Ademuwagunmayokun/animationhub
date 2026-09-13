@@ -3128,6 +3128,31 @@ body::before {
   color: var(--ink);
 }
 
+.creativity-innovation-section .ref-outline-word {
+  -webkit-text-stroke-color: var(--ink);
+  text-shadow: none;
+}
+
+.creativity-innovation-section .ref-script-word,
+.creativity-innovation-section .creativity-lead-p,
+.creativity-innovation-section .creativity-tag-item,
+.creativity-innovation-section .btn-outline {
+  color: var(--ink);
+}
+
+.creativity-innovation-section .ref-script-word {
+  text-shadow: none;
+}
+
+.creativity-innovation-section .creativity-tag-item {
+  border-color: rgba(17, 19, 24, 0.28);
+  background: rgba(240, 234, 220, 0.2);
+}
+
+.creativity-innovation-section .btn-outline {
+  border-color: var(--ink);
+}
+
 .creativity-card-frame,
 .who-we-are-showcase-card,
 .program-landscape-banner,
@@ -3150,6 +3175,23 @@ body::before {
 .sponsorship-graphic-card {
   background: var(--paper-soft);
   color: var(--ink);
+}
+
+.sponsorship-graphic-card .sponsorship-main-headline,
+.sponsorship-graphic-card .sponsorship-desc-p,
+.sponsorship-graphic-card .sponsorship-perk-chip,
+.sponsorship-graphic-card .sponsorship-deadline-note {
+  color: var(--ink);
+}
+
+.sponsorship-graphic-card .highlight-orange {
+  color: var(--cobalt);
+  text-shadow: none;
+}
+
+.sponsorship-graphic-card .sponsorship-perk-chip {
+  background: rgba(17, 19, 24, 0.06);
+  border-color: rgba(17, 19, 24, 0.24);
 }
 
 .who-media-frame,

@@ -2,18 +2,11 @@
    ANIMATION HUB - 3D ANIMATION ENGINE & INTERACTIVE CONTROLLER
    ========================================================================== */
 
-import { initThreeScene, toggle3DWireframe, pulse3DShockwave } from './three-scene.js';
-
 let conveyorPaused = false;
 let currentSpeed = 1;
 
 document.addEventListener('DOMContentLoaded', () => {
   console.log('Animation Hub 3D Creative Engine Initialized.');
-
-  // Initialize Three.js 3D Viewport
-  setTimeout(() => {
-    initThreeScene('three-hero-canvas-container');
-  }, 100);
 });
 
 /**

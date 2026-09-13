@@ -2855,3 +2855,346 @@ h4, .heading-4 {
     padding: 2.5rem 1.5rem;
   }
 }
+
+/* ========================================================================
+   EDITORIAL COLLAGE ART DIRECTION
+   ======================================================================== */
+:root {
+  --paper: #f0eadc;
+  --paper-soft: #e4dccb;
+  --ink: #111318;
+  --ink-soft: #272a31;
+  --cobalt: #2347d6;
+  --coral: #ff5964;
+  --acid: #d7ed43;
+  --brand-orange: #ff5e04;
+  --brand-orange-hover: #d94800;
+  --font-display: 'Bricolage Grotesque', 'Fredoka', sans-serif;
+}
+
+body {
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(rgba(17, 19, 24, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17, 19, 24, 0.045) 1px, transparent 1px),
+    url('assets/images/hero-nature-bg.jpg');
+  background-size: 34px 34px, 34px 34px, cover;
+  background-attachment: fixed;
+  color: var(--ink);
+  font-family: 'Outfit', 'Bricolage Grotesque', sans-serif;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.65'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+.header {
+  background: rgba(240, 234, 220, 0.92);
+  border-bottom: 2px solid var(--ink);
+  backdrop-filter: blur(14px);
+}
+
+.logo-brand-text,
+.nav-link,
+.bar-icon-label {
+  color: var(--ink);
+}
+
+.nav-link.active {
+  color: var(--cobalt);
+}
+
+.nav-link.active::after {
+  background: var(--cobalt);
+}
+
+.hero-section {
+  min-height: 88vh;
+  padding: 5.5rem 0 4rem;
+  background: var(--ink);
+  isolation: isolate;
+}
+
+.hero-section::after {
+  content: 'MAKE / MOVE / MATTER';
+  position: absolute;
+  right: -2.5rem;
+  bottom: 8rem;
+  z-index: 2;
+  color: var(--acid);
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.hero-bg-video {
+  opacity: 0.32;
+  filter: saturate(0.7) contrast(1.2) brightness(0.7);
+  mix-blend-mode: screen;
+}
+
+.hero-video-overlay {
+  background:
+    linear-gradient(90deg, rgba(17, 19, 24, 0.96) 0%, rgba(17, 19, 24, 0.76) 44%, rgba(17, 19, 24, 0.16) 100%),
+    linear-gradient(180deg, rgba(17, 19, 24, 0.32), rgba(17, 19, 24, 0.82));
+}
+
+.hero-interactive-grid {
+  grid-template-columns: 1fr;
+  gap: 5rem;
+  padding: 2rem 0 4.5rem;
+}
+
+.hero-text-box {
+  position: relative;
+  max-width: 690px;
+}
+
+.hero-text-box::before {
+  content: 'AH / 26';
+  position: absolute;
+  top: -2rem;
+  left: -2rem;
+  color: var(--coral);
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  transform: rotate(-8deg);
+}
+
+.brand-pill-tag {
+  background: var(--acid);
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  box-shadow: 5px 5px 0 var(--coral);
+  border-radius: 2px;
+  transform: rotate(-2deg);
+}
+
+.hero-text-box h1 {
+  max-width: 680px;
+  color: var(--paper);
+  font-family: var(--font-display);
+  font-size: clamp(3.4rem, 7vw, 7.4rem);
+  font-weight: 800;
+  letter-spacing: -0.055em;
+  line-height: 0.89;
+  text-wrap: balance;
+}
+
+.hero-desc {
+  max-width: 470px;
+  color: #c9c4b8;
+  font-size: 1.08rem;
+  line-height: 1.55;
+}
+
+.btn {
+  border-radius: 2px;
+  border: 2px solid currentColor;
+  box-shadow: 4px 4px 0 var(--cobalt);
+}
+
+.btn-amber {
+  color: var(--paper);
+  box-shadow: 4px 4px 0 var(--acid);
+}
+
+.btn-amber:hover {
+  background: var(--coral);
+  box-shadow: 6px 6px 0 var(--acid);
+}
+
+.btn-outline {
+  color: var(--paper);
+  border-color: var(--paper);
+}
+
+.three-hero-viewport-card {
+  border: 2px solid var(--paper);
+  border-radius: 0;
+  background: rgba(17, 19, 24, 0.68);
+  box-shadow: 12px 12px 0 var(--coral), 22px 22px 0 var(--cobalt);
+  transform: rotate(2deg);
+}
+
+.three-hero-viewport-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  border: 1px solid rgba(215, 237, 67, 0.8);
+  transform: translate(8px, -8px);
+}
+
+.three-hud-top-bar,
+.three-hud-bottom-bar {
+  position: relative;
+  z-index: 2;
+  background: rgba(17, 19, 24, 0.88);
+  border-color: rgba(240, 234, 220, 0.25);
+}
+
+.three-canvas-container {
+  background: radial-gradient(circle at center, rgba(35, 71, 214, 0.22), transparent 68%);
+}
+
+.hero-icon-bar {
+  position: relative;
+  z-index: 2;
+  border-top: 2px solid rgba(240, 234, 220, 0.5);
+}
+
+.bar-icon-box {
+  border-radius: 2px;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  color: var(--ink);
+  box-shadow: 4px 4px 0 var(--cobalt);
+}
+
+.icon-bar-item:hover .bar-icon-box {
+  background: var(--acid);
+  color: var(--ink);
+  border-color: var(--ink);
+  box-shadow: 5px 5px 0 var(--coral);
+}
+
+.disciplines-section,
+.brand-values-section,
+.sponsorship-ref-section {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.who-we-are-ref-section,
+.discover-program-section {
+  background: var(--ink);
+}
+
+.section-header-centered h2,
+.section-header-centered p,
+.who-content-heading,
+.who-content-lead,
+.who-content-body,
+.bar-icon-label {
+  color: inherit;
+}
+
+.discipline-card-reference,
+.showcase-item,
+.service-card-item.hanging-box {
+  border-radius: 0;
+  border: 2px solid var(--ink);
+  box-shadow: 7px 7px 0 var(--cobalt);
+}
+
+.discipline-card-reference:nth-child(2n),
+.showcase-item:nth-child(2n) {
+  transform: rotate(1.5deg);
+}
+
+.discipline-card-reference:nth-child(3n),
+.showcase-item:nth-child(3n) {
+  transform: rotate(-1.2deg);
+}
+
+.discipline-card-reference:hover,
+.showcase-item:hover {
+  transform: translateY(-8px) rotate(0deg);
+  border-color: var(--coral);
+  box-shadow: 9px 9px 0 var(--coral);
+}
+
+.card-amber-banner {
+  background: var(--acid);
+  border-top: 2px solid var(--ink);
+}
+
+.creativity-innovation-section {
+  background: var(--coral);
+  color: var(--ink);
+}
+
+.creativity-card-frame,
+.who-we-are-showcase-card,
+.program-landscape-banner,
+.sponsorship-graphic-card {
+  border-radius: 0;
+  border: 2px solid var(--ink);
+  box-shadow: 10px 10px 0 var(--cobalt);
+}
+
+.creativity-innovation-section .creativity-card-frame {
+  transform: rotate(3deg);
+}
+
+.creativity-glow-halo {
+  background: radial-gradient(circle, rgba(215, 237, 67, 0.72) 0%, transparent 68%);
+}
+
+.who-we-are-showcase-card,
+.program-landscape-banner,
+.sponsorship-graphic-card {
+  background: var(--paper-soft);
+  color: var(--ink);
+}
+
+.who-media-frame,
+.character-portal-frame {
+  border-radius: 0;
+  border: 2px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--coral);
+}
+
+.ref-badge {
+  border-radius: 2px;
+  background: var(--acid);
+  border-color: var(--ink);
+  color: var(--ink);
+  box-shadow: 4px 4px 0 var(--coral);
+}
+
+@media (max-width: 900px) {
+  .hero-interactive-grid {
+    gap: 3rem;
+  }
+
+  .three-hero-viewport-card {
+    transform: rotate(0deg);
+    box-shadow: 7px 7px 0 var(--coral);
+  }
+
+  .hero-section::after {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-text-box h1 {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .hero-text-box::before {
+    left: 0;
+  }
+
+  .discipline-card-reference:nth-child(2n),
+  .discipline-card-reference:nth-child(3n),
+  .showcase-item:nth-child(2n),
+  .showcase-item:nth-child(3n) {
+    transform: none;
+  }
+}

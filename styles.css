@@ -79,27 +79,54 @@ body {
 }
 
 /* Typography Utilities matching reference screenshot */
+/* Typography Utilities matching reference screenshot */
 .outline-text {
-  font-family: var(--font-sans);
+  font-family: 'Montserrat', sans-serif;
   font-weight: 900;
   font-size: 4.5rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: transparent;
   -webkit-text-stroke: 2px #FFFFFF;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
   line-height: 1;
+  display: block;
+}
+
+.outline-text-sm {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 3.2rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 2px #FFFFFF;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+  line-height: 1;
+  display: block;
 }
 
 .script-text {
   font-family: var(--font-script);
   font-size: 3.8rem;
-  color: var(--amber-primary);
+  color: #FFA000;
   font-weight: 700;
   line-height: 1;
-  margin-top: -0.5rem;
+  margin-top: -0.4rem;
   margin-bottom: 1.5rem;
-  text-shadow: 0 0 15px var(--amber-glow);
+  display: block;
+  text-shadow: 0 0 20px rgba(255, 160, 0, 0.4);
+}
+
+.highlight-gold {
+  color: #FFA000;
+  text-shadow: 0 0 15px rgba(255, 160, 0, 0.35);
+}
+
+.cursive-white {
+  font-family: var(--font-script);
+  color: #FFFFFF;
+  font-style: italic;
 }
 
 /* Buttons */
@@ -2455,5 +2482,550 @@ h4, .heading-4 {
   }
   .dryclean-hanger-assembly {
     width: 310px;
+  }
+}
+
+/* ==========================================================================
+   REFERENCE GRAPHICS & ADVANCED VISUAL STYLING
+   ========================================================================== */
+
+/* 1. Top Announcement Bar */
+.top-announcement-bar {
+  background: #09090D;
+  border-bottom: 1px solid rgba(255, 94, 4, 0.25);
+  padding: 0.55rem 0;
+  font-size: 0.85rem;
+  color: var(--text-main);
+  position: relative;
+  z-index: 101;
+}
+
+.announcement-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.announcement-left {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.announcement-badge {
+  background: var(--brand-orange);
+  color: #FFFFFF;
+  font-family: var(--font-animated);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px rgba(255, 94, 4, 0.4);
+}
+
+.announcement-text {
+  color: #D1D5DB;
+  font-size: 0.86rem;
+}
+
+.announcement-cta {
+  color: var(--brand-orange-light);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  transition: var(--transition);
+}
+
+.announcement-cta:hover {
+  color: #FFFFFF;
+  text-shadow: 0 0 12px var(--brand-orange);
+}
+
+/* 2. Hero Cosmic Panoramic Visual Stage */
+.hero-cosmic-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 2.5rem;
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.85), 0 0 40px rgba(255, 94, 4, 0.15);
+}
+
+.hero-cosmic-img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.hero-cosmic-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.92) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.5rem 3rem;
+}
+
+.hero-cosmic-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-bottom: 0.5rem;
+  opacity: 0.9;
+}
+
+.hero-cosmic-title {
+  font-family: 'Montserrat', var(--font-sans);
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.15;
+  text-shadow: 0 2px 15px rgba(0,0,0,0.8);
+  margin-bottom: 0.75rem;
+}
+
+.hero-cosmic-sub {
+  color: #E5E7EB;
+  font-size: 1.05rem;
+  max-width: 650px;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+/* 3. Discover Who We Are Character Stage */
+.discover-who-stage {
+  background: #000000;
+  position: relative;
+  padding: 5rem 0 4rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.discover-who-container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.discover-who-header {
+  margin-bottom: 2rem;
+}
+
+.discover-who-art-wrapper {
+  position: relative;
+  max-width: 1040px;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 70px rgba(0,0,0,0.95), 0 0 35px rgba(255, 94, 4, 0.18);
+}
+
+.discover-who-art-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* 4 Pillars Interactive Icon Bar */
+.pillars-interactive-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  max-width: 920px;
+  margin: 2.5rem auto 0 auto;
+}
+
+.pillar-icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1.4rem 1rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  cursor: pointer;
+  transition: all var(--transition);
+  color: #FFFFFF;
+}
+
+.pillar-icon-item:hover,
+.pillar-icon-item.active {
+  background: rgba(255, 94, 4, 0.16);
+  border-color: var(--brand-orange);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(255, 94, 4, 0.35);
+}
+
+.pillar-icon-box {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  transition: all var(--transition);
+}
+
+.pillar-icon-item.active .pillar-icon-box {
+  background: var(--brand-orange);
+  color: #FFFFFF;
+  box-shadow: 0 0 20px var(--brand-orange-glow);
+}
+
+.pillar-label {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.pillar-details-card {
+  max-width: 860px;
+  margin: 2rem auto 0 auto;
+  background: rgba(17, 17, 22, 0.95);
+  border: 1px solid rgba(255, 94, 4, 0.35);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  text-align: left;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.8);
+  animation: fadeInPillar 0.3s ease-out;
+}
+
+.pillar-details-card.active {
+  animation: fadeInPillar 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInPillar {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* 4. Discover Animation Hub: Where Creativity Meets Innovation */
+.creativity-innovation-section {
+  padding: 5rem 0;
+  position: relative;
+  background: linear-gradient(180deg, #000000 0%, #09090E 50%, #000000 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.creativity-grid-2col {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 3.5rem;
+  align-items: center;
+}
+
+.creativity-headline {
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1.18;
+  color: #FFFFFF;
+  margin: 1.25rem 0 1.5rem 0;
+  font-family: 'Montserrat', var(--font-sans);
+}
+
+.creativity-body-text {
+  font-size: 1.05rem;
+  color: #C5C9D3;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.creativity-art-box {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 94, 4, 0.35);
+  box-shadow: 0 25px 65px rgba(0,0,0,0.9), 0 0 35px rgba(255, 94, 4, 0.25);
+  background: #000;
+}
+
+.creativity-art-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.magical-orb-halo {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 30%;
+  left: 36%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(235, 77, 255, 0.45) 0%, rgba(138, 43, 226, 0.25) 50%, transparent 70%);
+  filter: blur(14px);
+  pointer-events: none;
+  animation: orbPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes orbPulse {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  100% { transform: scale(1.25); opacity: 1; }
+}
+
+/* 5. Discover The Program / Unleash your talent Savanna Banner */
+.savanna-program-section {
+  padding: 4.5rem 0;
+}
+
+.savanna-program-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #000000;
+  box-shadow: 0 25px 65px rgba(0,0,0,0.85);
+}
+
+.savanna-program-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.savanna-program-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.45) 35%, rgba(0,0,0,0.88) 60%, rgba(0,0,0,0.98) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 3rem 4rem;
+}
+
+.savanna-text-box {
+  max-width: 540px;
+  text-align: left;
+}
+
+.savanna-unleash-sub {
+  font-family: var(--font-script);
+  font-size: 2.3rem;
+  color: #FFFFFF;
+  font-style: italic;
+  margin: 0.5rem 0 0.5rem 0;
+  line-height: 1.1;
+}
+
+.savanna-desc-text {
+  font-size: 1.05rem;
+  color: #E2E8F0;
+  margin-bottom: 1.75rem;
+  line-height: 1.5;
+}
+
+/* 6. Hurry & Sign In: Full Sponsorship Available */
+.sponsorship-graphic-section {
+  padding: 4.5rem 0;
+}
+
+.sponsorship-graphic-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 94, 4, 0.45);
+  background: #000000;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95), 0 0 40px rgba(255, 94, 4, 0.28);
+}
+
+.sponsorship-graphic-img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.sponsorship-content-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.65) 60%, rgba(0,0,0,0.92) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.5rem;
+}
+
+.sponsorship-pre-tag {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #FFFFFF;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.85);
+}
+
+/* 3D Metallic Circular Button */
+.register-metallic-btn {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffffff 0%, #d8d8d8 20%, #888888 50%, #ffffff 80%, #555555 100%);
+  padding: 6px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.75), 0 0 25px rgba(255, 94, 4, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  margin-bottom: 1.25rem;
+  animation: metallicPulse 2.5s infinite;
+}
+
+.register-metallic-btn:hover {
+  transform: scale(1.1) rotate(4deg);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.9), 0 0 45px rgba(255, 94, 4, 0.85);
+}
+
+@keyframes metallicPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); box-shadow: 0 12px 35px rgba(0,0,0,0.8), 0 0 35px rgba(255, 94, 4, 0.7); }
+}
+
+.metallic-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #FF7B31 0%, #FF5E04 55%, #B33D00 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  box-shadow: inset 0 2px 4px rgba(255,255,255,0.4), inset 0 -3px 5px rgba(0,0,0,0.4);
+}
+
+.metallic-text-top {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.metallic-text-bot {
+  font-size: 0.94rem;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.sponsorship-main-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.2rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.6), 0 4px 15px rgba(0,0,0,0.9);
+  margin-bottom: 1.5rem;
+}
+
+/* Home Preview Teaser Banner for Hanging 20 Services */
+.home-services-teaser {
+  margin: 4.5rem 0;
+  padding: 3rem;
+  background: linear-gradient(135deg, rgba(255, 94, 4, 0.12) 0%, rgba(17, 17, 22, 0.95) 100%);
+  border: 1px solid rgba(255, 94, 4, 0.35);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+.home-services-teaser-left {
+  max-width: 680px;
+}
+
+.home-services-teaser-title {
+  font-family: 'Montserrat', var(--font-sans);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  margin-bottom: 0.75rem;
+}
+
+.home-services-teaser-desc {
+  color: #C5C9D3;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* Responsive Additions */
+@media (max-width: 980px) {
+  .creativity-grid-2col {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .savanna-program-overlay {
+    padding: 2.5rem;
+    justify-content: center;
+    background: rgba(0,0,0,0.75);
+  }
+  .savanna-text-box {
+    text-align: center;
+  }
+  .pillars-interactive-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .outline-text {
+    font-size: 3rem;
+  }
+  .outline-text-sm {
+    font-size: 2.2rem;
+  }
+  .script-text {
+    font-size: 2.8rem;
+  }
+  .sponsorship-main-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .pillars-interactive-bar {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+  .hero-cosmic-title {
+    font-size: 1.8rem;
+  }
+  .hero-cosmic-overlay {
+    padding: 1.5rem;
+  }
+  .home-services-teaser {
+    padding: 1.75rem;
   }
 }

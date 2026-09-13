@@ -215,6 +215,56 @@ function toggleWireframeMode() {
 }
 
 /* ==========================================================================
+   WHO WE ARE 4 PILLARS INTERACTIVE CONTROLLER
+   ========================================================================== */
+const PILLAR_DATA = {
+  story: {
+    title: 'Our Story',
+    subtitle: 'Born to Empower African Creators',
+    desc: 'Animation Hub is a creative technology organization founded to equip youth, animators, and software developers across Nigeria and Africa with industry-grade production mastery and practical business solutions. Combining 3D artistry, generative AI, and full-stack software development, we help African stories reach the world stage.'
+  },
+  partners: {
+    title: 'Our Partners & Sponsors',
+    subtitle: 'Collaborating for Global Impact',
+    desc: 'We collaborate with educational foundations, international technology leaders, production studios, and venture champions to deliver fully funded scholarships, workstations, and production opportunities to underrepresented youth.'
+  },
+  mission: {
+    title: 'Our Mission & Aim',
+    subtitle: 'Empowering Creators Globally',
+    desc: 'Our aim is to empower the next generation of African creators through innovative animation, AI, digital arts, and storytelling, while helping African stories reach the world. We combine artistic excellence with practical technology to help businesses and creators thrive.'
+  },
+  vision: {
+    title: 'Our Vision',
+    subtitle: 'Leading Africa’s Creative Technology',
+    desc: 'Our vision is to be a leading force in Africa’s animation and creative technology ecosystem, empowering creators to tell stories that inspire, transform communities, and connect with global audiences.'
+  }
+};
+
+function selectWhoWeArePillar(pillarKey, btnElement) {
+  const data = PILLAR_DATA[pillarKey];
+  if (!data) return;
+
+  const buttons = document.querySelectorAll('.pillar-icon-item');
+  buttons.forEach(b => b.classList.remove('active'));
+  if (btnElement) btnElement.classList.add('active');
+
+  const card = document.getElementById('pillar-details-card');
+  const titleEl = document.getElementById('pillar-active-title');
+  const subtitleEl = document.getElementById('pillar-active-subtitle');
+  const descEl = document.getElementById('pillar-active-desc');
+
+  if (card) {
+    card.classList.remove('active');
+    void card.offsetWidth; // trigger reflow for smooth animation
+    card.classList.add('active');
+  }
+
+  if (titleEl) titleEl.textContent = data.title;
+  if (subtitleEl) subtitleEl.textContent = data.subtitle;
+  if (descEl) descEl.textContent = data.desc;
+}
+
+/* ==========================================================================
    DRY CLEANING HANGING WIRE CONVEYOR ENGINE (20 Services)
    ========================================================================== */
 
@@ -369,5 +419,6 @@ Object.assign(window, {
   toggleConveyorPause,
   setConveyorSpeed,
   toggle3DWireframe,
-  pulse3DShockwave
+  pulse3DShockwave,
+  selectWhoWeArePillar
 });

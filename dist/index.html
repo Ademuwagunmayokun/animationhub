@@ -6,15 +6,28 @@
   <title>Animation Hub | 3D Creative Technology, Animation & AI Solutions</title>
   <meta name="description" content="Animation Hub is a creative technology organization empowering the next generation of African creators and helping businesses scale with AI, full-stack development, and 3D animation.">
   
-  <!-- Expressive & Animated Typography: Righteous & Fredoka + Bricolage Grotesque -->
+  <!-- Expressive & Animated Typography: Righteous, Fredoka, Caveat, Dancing Script & Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Righteous&family=Bricolage+Grotesque:opsz,wght@12..96,500;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@700&family=Fredoka:wght@400;500;600;700&family=Righteous&family=Bricolage+Grotesque:opsz,wght@12..96,500;700;800&family=Inter:wght@400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
   
-  <script type="module" crossorigin src="/assets/index-DKQAlwj2.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-CEq7pKXK.css">
+  <script type="module" crossorigin src="/assets/index-C0be8GLm.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CGOLkoMv.css">
 </head>
 <body>
+
+  <!-- Top Announcement Bar (From Reference Screenshots) -->
+  <div class="top-announcement-bar">
+    <div class="container announcement-inner">
+      <div class="announcement-left">
+        <span class="announcement-badge">ENROLLMENT OPEN</span>
+        <span class="announcement-text">Empowering the next generation of African creators. Full sponsorship scholarships are currently open.</span>
+      </div>
+      <a href="#" onclick="openApplyModal('Full Sponsorship Registration', true); return false;" class="announcement-cta">
+        Apply for Sponsorship &rarr;
+      </a>
+    </div>
+  </div>
 
   <!-- Sticky Navigation Bar (Official Brand Guidelines Logo Lockup) -->
   <header class="header">
@@ -90,7 +103,7 @@
     <!-- 1. HOME VIEW -->
     <div id="home-view" class="page-view active">
       
-      <!-- HERO SECTION WITH INTERACTIVE THREE.JS 3D VIEWPORT -->
+      <!-- 1. HERO SECTION WITH PANORAMIC COSMIC BANNER & INTERACTIVE THREE.JS 3D VIEWPORT -->
       <section class="hero-section">
         <video class="hero-bg-video" autoplay loop muted playsinline poster="/assets/hero-studio-bg-BzIKQvsY.jpg">
           <source src="/assets/hero-boy-video-Ob5hXHGg.mp4" type="video/mp4">
@@ -98,25 +111,41 @@
         <div class="hero-video-overlay"></div>
 
         <div class="container">
+          <!-- Panoramic Cosmic Horizon Banner (Reference 1 & 2) -->
+          <div class="hero-cosmic-card">
+            <img src="/assets/hero-cosmic-clean-zyoNgMFC.png" alt="Animation Hub - Youth In Animation and Post-Production Initiative" class="hero-cosmic-img">
+            <div class="hero-cosmic-overlay">
+              <span class="hero-cosmic-tag">WELCOME TO ANIMATION HUB • AFRICA</span>
+              <h1 class="hero-cosmic-title">Empowering the Next Generation of African Creators</h1>
+              <p class="hero-cosmic-sub">
+                Animation Hub combines practical AI integration, full-stack software development, 3D animation, and African storytelling to help businesses scale and creators reach the global stage.
+              </p>
+              <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <button class="btn btn-amber" onclick="openApplyModal('Full Sponsorship Registration', true)">JOIN WAITING LIST &rarr;</button>
+                <button class="btn btn-outline" onclick="openApplyModal()">GET A QUOTE</button>
+                <button class="btn btn-outline" onclick="switchTab('services')">HANGING 20 SERVICES</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive WebGL 3D Core Viewport Grid -->
           <div class="hero-interactive-grid">
-            
             <div class="hero-text-box">
               <div class="brand-pill-tag">
                 <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                3D Studio & Creative Technology Engine
+                Real-Time WebGL 3D Technology Engine
               </div>
               
-              <h1 style="margin-bottom: 1.25rem;">
-                Empowering the Next Generation of African Creators
-              </h1>
+              <h2 style="font-size: 2.2rem; margin-bottom: 1rem; color: #FFFFFF; font-family: 'Montserrat', var(--font-sans);">
+                Interactive 3D Simulation & Virtual Production
+              </h2>
               
               <p class="hero-desc">
-                Animation Hub is a creative technology organization combining practical AI integration, full-stack software development, 3D animation, and storytelling to help businesses scale and African stories reach the world.
+                Experience real-time 3D rendering right in your browser. Orbit, toggle mesh wireframes, and trigger energy shockwaves across our WebGL studio core.
               </p>
               
-              <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2rem;">
-                <button class="btn btn-amber" onclick="switchTab('services')">HANGING 20 SERVICES &rarr;</button>
-                <button class="btn btn-outline" onclick="openApplyModal()">GET A QUOTE</button>
+              <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
+                <button class="btn btn-amber" onclick="switchTab('services')">20 SERVICES CONVEYOR &rarr;</button>
                 <button class="btn btn-outline" onclick="switchTab('programs')">ACADEMY TRAINING</button>
               </div>
             </div>
@@ -142,7 +171,6 @@
                 </div>
               </div>
             </div>
-
           </div>
 
           <!-- Hero Bottom Quick Pillars Bar -->
@@ -179,52 +207,167 @@
         </div>
       </section>
 
-      <!-- WHO ARE WE SECTION (With Animated Character Stage replacing static image) -->
-      <section class="who-are-we-section" id="who-are-we-section">
+      <!-- 2. "DISCOVER WHO WE ARE" GRAPHIC STAGE (Matches Reference 3) -->
+      <section class="discover-who-stage" id="who-are-we-section">
+        <div class="container discover-who-container">
+          <div class="discover-who-header">
+            <span class="outline-text">DISCOVER</span>
+            <span class="script-text">Who we are</span>
+          </div>
+          
+          <!-- Character Artwork Stage (3D VR Jumper, Stroked Typography & Confident Professional) -->
+          <div class="discover-who-art-wrapper">
+            <img src="/assets/discover-who-we-are-clean-CBENcWYc.png" alt="Discover Who We Are - Animation Hub 3D Characters" class="discover-who-art-img">
+          </div>
+
+          <!-- 4 Pillars Interactive Icon Bar matching Reference 3 -->
+          <div class="pillars-interactive-bar">
+            <div class="pillar-icon-item active" onclick="selectWhoWeArePillar('story', this)">
+              <div class="pillar-icon-box">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+              </div>
+              <span class="pillar-label">OUR STORY</span>
+            </div>
+
+            <div class="pillar-icon-item" onclick="selectWhoWeArePillar('partners', this)">
+              <div class="pillar-icon-box">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m11 17 2 2a1 1 0 0 0 1.4 0l4.6-4.6a2 2 0 0 0 0-2.8l-3.2-3.2a2 2 0 0 0-2.8 0L11 10.4"/><path d="m18 10 3-3a2 2 0 0 0 0-2.8l-1.2-1.2a2 2 0 0 0-2.8 0l-3 3"/><path d="m14 14-6 6a2 2 0 0 1-2.8 0l-1.2-1.2a2 2 0 0 1 0-2.8l6-6"/><path d="m6 10-3 3a2 2 0 0 0 0 2.8l1.2 1.2a2 2 0 0 0 2.8 0l3-3"/></svg>
+              </div>
+              <span class="pillar-label">OUR PARTNERS</span>
+            </div>
+
+            <div class="pillar-icon-item" onclick="selectWhoWeArePillar('mission', this)">
+              <div class="pillar-icon-box">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"></path><line x1="4" y1="22" x2="4" y2="15"></line></svg>
+              </div>
+              <span class="pillar-label">OUR MISSION</span>
+            </div>
+
+            <div class="pillar-icon-item" onclick="selectWhoWeArePillar('vision', this)">
+              <div class="pillar-icon-box">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+              </div>
+              <span class="pillar-label">OUR VISION</span>
+            </div>
+          </div>
+
+          <!-- Dynamic Pillar Details Card -->
+          <div class="pillar-details-card" id="pillar-details-card">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+              <span class="brand-pill-tag" id="pillar-active-title">Our Story</span>
+              <span style="font-family: var(--font-animated); font-size: 0.82rem; color: var(--brand-orange);" id="pillar-active-subtitle">Born to Empower African Creators</span>
+            </div>
+            <p id="pillar-active-desc" style="color: #E2E8F0; font-size: 1.05rem; line-height: 1.7;">
+              Animation Hub is a creative technology organization founded to equip youth, animators, and software developers across Nigeria and Africa with industry-grade production mastery and practical business solutions. Combining 3D artistry, generative AI, and full-stack software development, we help African stories reach the world stage.
+            </p>
+            <div style="margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+              <button class="btn btn-amber" onclick="switchTab('about')">ABOUT & BRAND VALUES &rarr;</button>
+              <button class="btn btn-outline" onclick="openApplyModal()">GET A QUOTE</button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 3. "DISCOVER ANIMATION HUB: WHERE CREATIVITY MEETS INNOVATION" (Matches Reference 1) -->
+      <section class="creativity-innovation-section">
         <div class="container">
-          <div class="who-are-we-card">
-            <div class="who-are-we-grid">
-              <div class="who-are-we-text-box">
-                <div class="brand-pill-tag">ABOUT US</div>
-                <h2 class="who-are-we-title">Who are we?</h2>
-                <p class="who-are-we-lead">
-                  Animation Hub is a creative technology organization focused on empowering the next generation of African creators through animation, AI, digital arts, and storytelling.
-                </p>
-                <p class="who-are-we-body">
-                  Our aim is to empower creators through innovative animation, AI, and storytelling, while helping African stories reach the world. We combine artistic excellence with practical technology to help businesses and creators thrive.
-                </p>
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;">
-                  <button class="btn btn-amber" onclick="switchTab('about')">OUR AIM & VALUES &rarr;</button>
-                  <button class="btn btn-outline" onclick="openApplyModal('Kids & Youth Animation')">Register a Child</button>
-                </div>
+          <div class="creativity-grid-2col">
+            <div class="creativity-text-box">
+              <div class="brand-pill-tag">3D STUDIO & CREATIVE TECH</div>
+              <h2 class="creativity-headline">
+                Discover Animation Hub: <span class="highlight-gold">Where Creativity Meets Innovation</span>
+              </h2>
+              <p class="creativity-body-text">
+                Welcome to Animation Hub, Africa's premier 3D Animation & Creative Technology Studio. We are committed to nurturing the next generation of animators, technical directors, and visual storytellers. Our comprehensive programs and client solutions, led by industry experts, offer hands-on training in the latest animation techniques, AI workflows, and real-time 3D software. At Animation Hub, we foster a dynamic learning environment that encourages exploration and growth. Join us to transform your passion for animation into a thriving career. Experience the Animation Hub difference and embark on an exciting journey of creative excellence.
+              </p>
+              <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                <button class="btn btn-amber" onclick="switchTab('programs')">EXPLORE ANIMATION HUB ACADEMY &rarr;</button>
+                <button class="btn btn-outline" onclick="openApplyModal()">REQUEST A QUOTE</button>
               </div>
+            </div>
 
-              <!-- Animated Character Stage (Replaces Static Image) -->
-              <div class="who-are-we-character-stage">
-                <div class="character-portal-frame">
-                  <video class="character-loop-video" autoplay loop muted playsinline poster="/assets/hero-studio-bg-BzIKQvsY.jpg">
-                    <source src="/assets/hero-boy-video-Ob5hXHGg.mp4" type="video/mp4">
-                  </video>
-                  <div class="character-portal-overlay"></div>
-                  <div class="character-neon-scanner"></div>
-
-                  <div class="character-portal-hud">
-                    <div class="character-portal-pill">
-                      <span class="three-status-dot"></span>
-                      ANIMATED 3D CHARACTER STAGE
-                    </div>
-                    <button class="three-action-btn" style="background:rgba(0,0,0,0.7);" onclick="switchTab('showcase')">EXPLORE 3D &rarr;</button>
-                  </div>
-                </div>
-              </div>
-
+            <div class="creativity-art-box">
+              <img src="/assets/creativity-character-stage-BH1UOa5E.png" alt="Animation Hub 3D Character Holding Magical Glowing Orb" class="creativity-art-img">
+              <div class="magical-orb-halo"></div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- BRAND CORE VALUES SECTION (From Page 6 of Brand Guidelines) -->
-      <section style="padding: 5rem 0;">
+      <!-- 4. "HURRY & SIGN IN: FULL SPONSORSHIP AVAILABLE" (Matches Reference 5) -->
+      <section class="sponsorship-graphic-section">
+        <div class="container">
+          <div class="sponsorship-graphic-card">
+            <img src="/assets/sponsorship-clean-BroxOdpF.png" alt="Full Sponsorship Available - Animation Hub" class="sponsorship-graphic-img">
+            
+            <div class="sponsorship-content-overlay">
+              <div class="sponsorship-pre-tag">HURRY & SIGN IN:</div>
+              
+              <!-- 3D Metallic Circular Button -->
+              <button class="register-metallic-btn" onclick="openApplyModal('Full Sponsorship Registration', true)" title="Register Now for Full Sponsorship" aria-label="Register Now">
+                <div class="metallic-inner">
+                  <span class="metallic-text-top">REGISTER</span>
+                  <span class="metallic-text-bot">NOW</span>
+                </div>
+              </button>
+              
+              <h2 class="sponsorship-main-title">FULL SPONSORSHIP AVAILABLE</h2>
+              <p style="color: #F3F4F6; max-width: 640px; font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.75rem; text-shadow: 0 2px 10px rgba(0,0,0,0.85);">
+                Limited 100% fully sponsored scholarships for youth and emerging animators across Nigeria and Africa. Master 3D sculpting, Maya, Blender, Unreal Engine & AI pipelines with zero tuition fees.
+              </p>
+              <button class="btn btn-amber" style="font-size: 0.95rem; padding: 0.95rem 2.5rem;" onclick="openApplyModal('Full Sponsorship Registration', true)">
+                CLAIM YOUR FULL SPONSORSHIP SPOT &rarr;
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. "DISCOVER THE PROGRAM / UNLEASH YOUR TALENT" SAVANNA BANNER (Matches Reference 4) -->
+      <section class="savanna-program-section">
+        <div class="container">
+          <div class="savanna-program-card">
+            <img src="/assets/discover-program-savanna-BBfBWs--.png" alt="Discover The Program - Unleash Your Talent" class="savanna-program-img">
+            
+            <div class="savanna-program-overlay">
+              <div class="savanna-text-box">
+                <span class="outline-text-sm">DISCOVER</span>
+                <span class="script-text" style="font-size: 3.2rem; margin-bottom: 0.2rem;">The Program</span>
+                <div class="savanna-unleash-sub">Unleash your talent</div>
+                <p class="savanna-desc-text">
+                  There is a training program adapted for every passion. Master 3D character animation, rigging, Unreal Engine environments, and AI generative tools.
+                </p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                  <button class="btn btn-amber" onclick="switchTab('programs')">VIEW 2-MONTH CURRICULUM &rarr;</button>
+                  <button class="btn btn-outline" onclick="openApplyModal('Adult Registration')">REGISTER NOW</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. HOME TEASER BANNER FOR THE HANGING 20 SERVICES CONVEYOR -->
+      <div class="container">
+        <div class="home-services-teaser">
+          <div class="home-services-teaser-left">
+            <div class="brand-pill-tag">AUTOMATED DRY-CLEANING CABLE CAROUSEL</div>
+            <h2 class="home-services-teaser-title">Explore Our 20 Hanging Services</h2>
+            <p class="home-services-teaser-desc">
+              Suspended from an overhead industrial dry-cleaning wire cable, each specialized service box glides smoothly on its own. Filter by AI, Development, Creative 3D, and Growth, or adjust conveyor speed!
+            </p>
+          </div>
+          <div>
+            <button class="btn btn-amber" style="font-size: 0.95rem; padding: 1rem 2.2rem;" onclick="switchTab('services')">
+              LAUNCH 20 SERVICES CONVEYOR &rarr;
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. BRAND CORE VALUES SECTION (From Page 6 of Brand Guidelines) -->
+      <section style="padding: 3rem 0 5rem 0;">
         <div class="container">
           <div class="section-header-centered" style="margin-bottom: 3.5rem;">
             <div class="brand-pill-tag">CORE PRINCIPLES</div>
@@ -273,30 +416,6 @@
               <p class="value-card-text">
                 We are committed to excellence, combining strong creative direction, technical skill, and attention to detail to produce impactful, world-class work.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ACADEMY SPOTLIGHT BANNER -->
-      <section style="padding: 2rem 0 5rem 0;">
-        <div class="container">
-          <div class="discover-banner-landscape">
-            <div class="discover-grid-2col">
-              <div class="discover-landscape-content">
-                <div class="brand-pill-tag">ANIMATION HUB ACADEMY</div>
-                <h2 style="color:#000; font-size: 2.4rem; margin-bottom: 0.85rem;">2-Month Intensive Training</h2>
-                <p style="color:#444; font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.5rem;">
-                  Turn your passion into professional production mastery. Learn 3D sculpting, Maya, Blender, Unreal Engine, and VFX simulation from top studio supervisors.
-                </p>
-                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                  <button class="btn btn-amber" onclick="switchTab('programs')">EXPLORE CURRICULUM &rarr;</button>
-                  <button class="btn btn-outline" style="color: #000; border-color: #000;" onclick="openApplyModal('Adult Registration')">REGISTER NOW</button>
-                </div>
-              </div>
-              <div class="discover-image-box">
-                <img src="/assets/animation-studio-meeting-B3pI4cZm.jpg" alt="Animation Studio Training" class="discover-banner-img">
-              </div>
             </div>
           </div>
         </div>
@@ -1900,6 +2019,25 @@
     <div id="programs-view" class="page-view">
       <section style="padding: 4rem 0;">
         <div class="container">
+
+          <!-- Savanna Header Banner (Matches Reference 4) -->
+          <div class="savanna-program-card" style="margin-bottom: 3rem;">
+            <img src="/assets/discover-program-savanna-BBfBWs--.png" alt="Discover The Program - Unleash Your Talent" class="savanna-program-img">
+            <div class="savanna-program-overlay">
+              <div class="savanna-text-box">
+                <span class="outline-text-sm">DISCOVER</span>
+                <span class="script-text" style="font-size: 3.2rem; margin-bottom: 0.2rem;">The Program</span>
+                <div class="savanna-unleash-sub">Unleash your talent</div>
+                <p class="savanna-desc-text">
+                  There is a training program adapted for every passion. Master 3D character animation, rigging, Unreal Engine environments, and AI generative tools.
+                </p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                  <button class="btn btn-amber" onclick="openApplyModal('Adult Registration')">REGISTER NOW &rarr;</button>
+                  <button class="btn btn-outline" onclick="openApplyModal('Kids & Youth Animation')">REGISTER A CHILD</button>
+                </div>
+              </div>
+            </div>
+          </div>
           
           <div class="training-roadmap-box">
             <div class="brand-pill-tag" style="background: rgba(255,255,255,0.1); color:#FFF; border-color: rgba(255,255,255,0.3);">INTENSIVE ACCELERATOR</div>
